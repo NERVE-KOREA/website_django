@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'demos',
+    'signup',
+    'login',
 ]
 
 MIDDLEWARE = [
@@ -90,18 +92,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', # mysqlclient librarly 설치
-        'NAME': 'nerve',
-        'USER': 'root',
-        'PASSWORD': 'nerve16', # mariaDB 설치 시 입력한 root 비밀번호 입력
-        'HOST': 'localhost',
-        'PORT': '3306',
-        
-        
-    }
-}
+# DB 보호를 위해 my_settings.py 폴더에 넣음
+import my_settings
+
+DATABASES = my_settings.DATABASES
+
 
 
 # Password validation
