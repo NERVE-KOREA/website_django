@@ -43,6 +43,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# changes the built in User to ours
+AUTH_USER_MODEL = 'signup.user'
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
 
 # Application definition
 
