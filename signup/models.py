@@ -62,7 +62,7 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'user_id'
-    REQUIRED_FIELDS = ['password', 'user_name', 'phone_number','gender','email','birthdate']
+    REQUIRED_FIELDS = ['user_name', 'phone_number','gender','email','birthdate']
 
     objects = UserManager()
 
@@ -74,4 +74,5 @@ class User(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+    
  
