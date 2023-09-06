@@ -1,0 +1,14 @@
+@import "reset.css";
+@import "style.css";
+
+span:nth-child(1){
+    color: var(--nerve-main-clolor2);
+}
+
+main {
+    height: 100rem;
+    justify-content: center;
+    background-color: aqua;
+    display: grid;
+    margin-top: 5.7rem;
+}
