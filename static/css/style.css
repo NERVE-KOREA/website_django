@@ -1,0 +1,86 @@
+:root {
+    --nerve-main-color:#DBF925;
+    --nerve-main-clolor2: #65FC90;
+}
+
+.global_wrap {
+    background-color: rgba(255, 255, 255, 0.92);
+    width: 85rem;
+    margin: 0 auto; 
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+/*  */
+/* navbar */
+/*  */
+ 
+nav a {color: black; text-decoration: none; outline: none}
+nav a:hover, a:active {
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.4s;
+    color: var(--nerve-main-clolor2);
+}
+
+nav {
+    width: 85rem;
+    display: flex;
+    padding: 1.8rem 0;
+    justify-content: space-between;
+    height: 2rem;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 400;
+    position: fixed;
+    background-color: white;
+    transition: all 300ms ease-in-out;
+    z-index: 99999;
+    border-bottom: 1px solid black;
+}
+.logo-container {
+    width: 6.1rem;
+    height: auto;
+    padding: 0.3rem 0.5rem;
+    margin: 0 2rem;
+    margin-bottom: 0.3rem;
+}
+.logo-container:hover {
+    box-shadow: 1px 1px 1px var(--nerve-main-color);
+    border-radius: 1rem;
+    transition: ease-in-out 0.8s;
+}
+.logo-container img {
+    width: 100%;
+}
+.nav-left  {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+.nav-left div span {
+    margin-right: 2rem;
+}
+.nav-left div span a {
+    padding: 0.7rem 1rem;
+    border-radius: 0.7rem;
+}
+.nav-right div span:nth-child(1) {
+    margin-right: 3rem;
+}
+.nav-right div span:nth-child(2) {
+    margin-right: 2rem;
+}
+.nav-right div span a {
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+}
+
+nav.navbar--dark {
+    background-color: transparent;
+    border: none;
+}
+nav.navbar--dark:hover {
+    background-color: white;
+    transition: all 1s;
+}
