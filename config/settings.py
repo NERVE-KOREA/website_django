@@ -44,7 +44,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # changes the built in User to ours
-AUTH_USER_MODEL = 'signup.user'
+AUTH_USER_MODEL = 'signup.User'
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
@@ -78,7 +78,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

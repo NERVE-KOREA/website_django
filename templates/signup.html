@@ -1,0 +1,59 @@
+{% load static %}
+---------------------- form 사용 예시-----------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+</head>
+<body>
+    <h2>회원가입</h2>
+    <form method="POST" id="signup-form">
+        {% csrf_token %}
+
+        {{ form.user_id.label_tag }} {{ form.user_id }}<br>
+        {{ form.password1.label_tag }} {{ form.password1 }}<br>
+        {{ form.password2.label_tag }} {{ form.password2 }}<span id="password-error" class="error"></span><br>
+        
+    
+        {{ form.user_name.label_tag }} {{ form.user_name }}<br>
+        {{ form.phone_number.label_tag }} {{ form.phone_number }}<br>
+        {{ form.birthdate.label_tag }} {{ form.birthdate }}<br>
+        {{ form.gender.label_tag }} {{ form.gender }}<br>
+        {{ form.email.label_tag }} {{ form.email }}<br>
+        {{ form.email_notification_acceptance.label_tag }} {{ form.email_notification_acceptance }}<br>
+        {{ form.sign_up_path.label_tag }} {{ form.sign_up_path }}<br>
+        
+    
+        
+        <button type="submit">가입하기</button>
+    </form>
+</body>
+</html>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("signup-form");
+    const password1 = form.elements["password1"];
+    const password2 = form.elements["password2"];
+    const passwordError = document.getElementById("password-error");
+
+    password2.addEventListener("input", function () {
+        if (password1.value !== password2.value) {
+            passwordError.textContent = "비밀번호가 일치하지 않습니다.";
+        } else {
+            passwordError.textContent = "";
+        }
+    });
+
+    form.addEventListener("submit", function (event) {
+        if (password1.value !== password2.value) {
+            passwordError.textContent = "비밀번호가 일치하지 않습니다.";
+            event.preventDefault(); // 폼 제출을 막습니다.
+        }
+    });
+});
+
+</script>
