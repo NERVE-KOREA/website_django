@@ -1,3 +1,17 @@
+// const maincon = document.querySelector('.main-container');
+// const rightfloat = document.querySelector('#right-float');
+
+// // 컨텐츠 영역부터 브라우저 최상단까지의 길이 구하기
+// const contentTop = maincon.getBoundingClientRect().top + window.scrollY + 600;
+
+// window.addEventListener('scroll', function(){
+//   if(window.scrollY >= contentTop){
+//     rightfloat.classList.add('fixed');
+//   }else{
+//     rightfloat.classList.remove('fixed');
+//   }
+// });
+
 // navbar 스크롤 애니메이션
 
 const navbar = document.querySelector('nav');
