@@ -9,6 +9,11 @@
     unicode-range: U+AC00-D7A3;
 }
 
+@font-face {
+    font-family: 'Bayon', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Bayon&display=swap');
+}
+
 :root {
     --nerve-main-color:#DBF925;
     --nerve-main-color2: #65FC90;
@@ -71,10 +76,15 @@ nav {
 .logo-container img {
     width: 100%;
 }
-.nav-left  {
+.nav-left {
     display: flex;
     align-items: center;
     font-weight: 600;
+}
+.nav-left, .nav-right  {
+    display: flex;
+    align-items: center;
+
 }
 .nav-left div span {
     margin-right: 2rem;

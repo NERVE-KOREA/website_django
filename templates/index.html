@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nerve</title>
-    <link rel="stylesheet" href="../css/index.css">
-
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
     <div class="global-wrap">
@@ -20,22 +20,10 @@
             </span>
             <span class="nav-right">
                 <div>
-                    <span>{% if user.is_authenticated %}
-                        <a href="{% url 'logout' %}">로그아웃</a>
-                      {% else %}
-                        <a href="{% url 'login' %}">로그인</a>
-                      {% endif %}
-                    <span><a href="../signup">회원가입</a></span>
+                    <span><a href="">로그인</a></span>
+                    <span><a href="">회원가입</a></span>
                 </div>   
             </span>
-            {% if user.is_authenticated %}
-            <div class="profile-section">
-                <h2>내 프로필</h2>
-                <p>유저 정보: {{ user.username }}</p>
-                <!-- 추가 프로필 정보 표시 -->
-                <a href="{% url 'myprofile' %}">프로필 수정</a>
-            </div>
-            {% endif %}
         </nav>
         <main>
             <div class="main-container">
@@ -43,41 +31,36 @@
                     <div class="main-section1-img">
                         <img src="../img/img_main1.png" alt="">
                     </div>
-                    <div class="sentence">
+                    <!-- <div class="sentence">
                         <div class="small-pill">RED PILL</div>
                         <div class="sentence-title">우리 몸이 자동차라면,</div>
                         <div class="sentence-title">레드필은 기름이자 윤활유야.</div>
                         <div class="sentence-subtitle">ENERGY SUPPORT & BALANCED VITAMIN.</div>
+                    </div> -->
+                </div>
+                <div class="banner-wrap">
+                    <div class="banner1">
+                        <div class="flow-text">
+                            <div class="flow-wrap">
+                                <span>GET BETTER</span>
+                                <span>NUTRITION.</span>
+                            </div>
+                            <div class="flow-wrap">
+                                <span>WE MAKE</span>
+                                <span>CULTURE.</span>
+                            </div>
+                            <div class="flow-wrap">
+                                <span>GET BETTER</span>
+                                <span>NUTRITION.</span>
+                            </div>
+                            <div class="flow-wrap">
+                                <span>WE MAKE</span>
+                                <span>CULTURE.</span>
+                            </div>
+                        </div> 
                     </div>
                 </div>
-                <div class="banner1">
-                    <div class="flow-text">
-                        <div class="flow-wrap">
-                            <span>GET BETTER</span>
-                            <span>NUTRITION.</span>
-                        </div>
-                        <div class="flow-wrap">
-                            <span>WE MAKE</span>
-                            <span>CULTURE.</span>
-                        </div>
-                        <div class="flow-wrap">
-                            <span>GET BETTER</span>
-                            <span>NUTRITION.</span>
-                        </div>
-                        <div class="flow-wrap">
-                            <span>WE MAKE</span>
-                            <span>CULTURE.</span>
-                        </div>
-                        <div class="flow-wrap">
-                            <span>GET BETTER</span>
-                            <span>NUTRITION.</span>
-                        </div>
-                        <div class="flow-wrap">
-                            <span>WE MAKE</span>
-                            <span>CULTURE.</span>
-                        </div>
-                    </div> 
-                </div>
+                
                 <div class="main-section2-brandstory">
                     <div class="main-section2-header">
                         <div class="main-section2-header-title">
