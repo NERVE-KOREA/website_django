@@ -28,7 +28,7 @@ def signup_view(request):
             # 로그인 한다
             auth.login(request, user)
             # home으로 돌려보내준다     
-            return render(request, "index.html")  
+            return render(request, "login.html")  
         # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
         else:
             pass

@@ -20,8 +20,12 @@
             </span>
             <span class="nav-right">
                 <div>
-                    <span><a href="">로그인</a></span>
-                    <span><a href="">회원가입</a></span>
+                    <span>{% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">로그아웃</a>
+                      {% else %}
+                        <a href="{% url 'login' %}">로그인</a>
+                      {% endif %}
+                    <span><a href="../signup">회원가입</a></span>
                 </div>   
             </span>
         </nav>

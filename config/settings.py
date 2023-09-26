@@ -48,6 +48,8 @@ AUTH_USER_MODEL = 'signup.User'
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -61,6 +63,7 @@ INSTALLED_APPS = [
     'demos',
     'signup',
     'login',
+    'product'
 ]
 
 MIDDLEWARE = [
@@ -78,7 +81,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templetes')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,7 +146,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    os.path.join(BASE_DIR, 'static')
 ]
 
 # Default primary key field type
