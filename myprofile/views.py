@@ -31,4 +31,4 @@ def myprofile_view(request):
         form = UserProfileForm(instance=user)
         password_form = PasswordResetForm()
 
-    return render(request, 'profile.html', {'form': form, 'password_form': password_form})
+    return render(request, 'myprofile.html', {'form': form, 'password_form': password_form})
