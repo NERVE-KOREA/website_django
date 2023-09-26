@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>내 프로필 수정</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h3>비밀번호 재설정</h3>
+    {{ password_form.as_p }}
+    <button type="submit">저장</button>
+  </form>
+{% endblock %}

@@ -21,6 +21,7 @@ class CustomLoginView(LoginView):
         from django.http import HttpResponseRedirect
         return HttpResponseRedirect(redirect_to)
     
+
 class CustomLogoutView(LogoutView):
     template_name = 'index.html'
     # 로그아웃 메서드 오버라이드
