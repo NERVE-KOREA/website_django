@@ -100,13 +100,14 @@ main {
 
 .detail-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 3rem;
-    height: 240rem;
+    height: 350rem;
 }
 
 .left-container {
-    width: 50%;
+    width: 59%;
+    margin-right: 7rem;
 }
 .pill-nav {
     display: table;
@@ -122,10 +123,10 @@ main {
     color: black;
     display: table-cell;
     border: 1px solid #8D8D8D;
-    width: 33%;
+    width: 25%;
     padding: 1rem 0.8rem;
     text-align: center;
-    font-size: 15px
+    font-size: 15px;
 }
 
 .pill-nav-detail {
@@ -142,7 +143,7 @@ main {
     color: black;
     display: table-cell;
     border: 1px solid #8D8D8D;
-    width: 33%;
+    width: 25%;
     padding: 1rem 0.8rem;
     text-align: center;
     font-size: 15px
@@ -208,7 +209,6 @@ main {
 
 }
 .sector-header {
-    font-size: 20px;
     font-weight: 700;
     margin-bottom: 2rem;
 }
@@ -226,14 +226,19 @@ main {
 .list-sen {
     margin-bottom: 1rem ;
 }
-
+.list-title {  
+    font-weight: 600;
+}
+.list-word {
+    margin-bottom: 1rem;
+}
 
 /* right container */
 
 .right-container {
     /* position: absolute; */
     top:10px;
-    margin-right: 3rem;
+    /* margin-right: 3rem; */
 }
 #right-float {
     width: 28rem;
