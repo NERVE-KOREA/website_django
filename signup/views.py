@@ -3,6 +3,8 @@ from signup.models import User, UserManager
 from django.contrib import auth
 from signup.forms import SignupForm
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from myprofile.forms import UserProfileForm
 # Create your views here.
 
 def main(request):
@@ -12,7 +14,6 @@ def signup_view(request):
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
     if request.method == 'POST':
         form = SignupForm(request.POST)
-        print(form)
         # form의 완성도 검증
         if form.is_valid():
             # user 객체를 새로 생성
@@ -37,40 +38,19 @@ def signup_view(request):
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})
 
+@login_required
+def profile_view(request):
+    user = request.user
 
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
 
+    else:
+        form = UserProfileForm(instance=user)
 
+    return render(request, 'profile.html', {'form': form})
 
-# def login(request):
-#     if request.method == 'POST':
-# def signup(request):
-#     if request.method == 'POST':
-#         username = request.POST['username']
-#         name = request.POST['name']
-#         password1 = request.POST['password1']
-#         password2 = request.POST['password2']
-#         phone_number = request.POST['phone_number']
-
-#         is_same_username = User.objects.filter(username=username)
-#         if len(is_same_username):
-#             return render(request, 'error.html', {'errorMsg': '아이디가 중복되었습니다.'})
-#         if password1 != password2:
-#             return render(request, 'error.html', {'errorMsg': '비밀번호가 다릅니다.'})
-        
-#         # 비밀번호 제약 조건 확인
-#         PASSWORD_VALIDATION = r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$'
-#         if not re.match(PASSWORD_VALIDATION, password1):
-#             return render(request, 'error.html', {'errorMsg': '비밀번호는 8자-16자, 특수문자[!@#$%^*+=-] 1개 이상, 숫자를 포함하여야 합니다.'})
-        
-#         new_user = User.objects.create_user(
-#             username = username,
-#             name = name,
-#             password = password1,
-#             phone_number = phone_number
-#         )
-#         new_user.save()
-#         auth.login(request, new_user)
-#         return redirect('/')
-#     else:
-#         return render(request, 'users/signup.html')
 
