@@ -8,6 +8,13 @@ from django.contrib.auth import authenticate, login
 def main(request):
     return render(request, "index.html")  
 
+def index(request):
+    return render(request,'./index.html',context_dict)
+def redpill(request):
+    return render(request,'./redpill.html',context_dict)
+def bluepill(request):
+    return render(request,'./bluepill.html',context_dict)
+
 def signup_view(request):
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
     if request.method == 'POST':

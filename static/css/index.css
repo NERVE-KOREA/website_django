@@ -370,30 +370,6 @@ main {
     -webkit-text-stroke: black;
 }
 
-/*  */
-/* footer */
-/*  */
-
-.footer-text {
-    height: 10rem;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 3rem;
-}
-.footer-text div {
-    margin: 0.4rem;
-}
-.footer-text div span {
-    margin: 0.3rem;
-}
-.footer-text div span a {
-    text-decoration: none;
-    text-decoration-line: underline;
-    color: white;
-}
 /* 
 
 @media screen and (max-width:400px) {

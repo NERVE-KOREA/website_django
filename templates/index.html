@@ -11,7 +11,7 @@
     <div class="global-wrap">
         <nav>
             <span class="nav-left">
-                <div class="logo-container"><a href="../templates/index.html"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
+                <div class="logo-container"><a href=""><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
                 <div>
                     <span><a href="../templates/brandstory.html">BRAND STORY</a></span>
                     <span><a href="../templates/redpill.html">RED PILL</a></span>
@@ -30,10 +30,10 @@
                     </div> 
                     {% if user.is_authenticated %}
                     <div class="profile-section">
-                        <h2>내 프로필</h2>
-                        <p>유저 정보: {{ user.username }}</p>
+                        <span>내 프로필</span>
+                        <span><p>유저 정보: {{ user.username }}</p></span>
                         <!-- 추가 프로필 정보 표시 -->
-                        <a href="{% url 'myprofile' %}">프로필 수정</a>
+                        <span><a href="{% url 'myprofile' %}">프로필 수정</a></span>
                     </div>
                     {% endif %}
                 </div>   
@@ -261,6 +261,6 @@
         </main>
 
     </div>
-    <script src="../js/index.js"></script>
+    <script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>
