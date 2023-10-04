@@ -3,15 +3,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css"/>
-    {% block style %}
-    {% endblock %}
+    <title>Nerve</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
-    {% block content %}
-    {% endblock %}  
+    <nav>
+        <span class="nav-left">
+            <div class="logo-container"><a href="../templates/index.html"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
+            <div>
+                <span><a href="../templates/brandstory.html">BRAND STORY</a></span>
+                <span><a href="../templates/redpill.html">RED PILL</a></span>
+                <span><a href="../templates/bluepill.html">BLUE PILL</a></span>
+            </div>
+        </span>
+        <span class="nav-right">
+            <div>
+                <span><a href="">로그인</a></span>
+                <span><a href="">회원가입</a></span>
+            </div>   
+        </span>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="footer-text">
+            <div>
+                <div>
+                    <span><a href="https://www.instagram.com/nervekorea/">Instagram</a></span>
+                    <span><a href="https://www.instagram.com/nervekorea/">Contact</a></span>
+                </div>
+                <div>Nervekorea@gmail.com</div>
+            </div>
+            <div>
+                <div>Nerve.</div>
+                <div>@ 2023</div>
+            </div>
+            <div>
+                <div>145, Anam-ro, Seongbuk-gu, Seoul,</div>
+                <div>Republic of Korea</div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="https://kit.fontawesome.com/58e1f810db.js" crossorigin="anonymous"></script>
 </body>
 </html>
