@@ -2,7 +2,7 @@
 
 {% block content %}
   <h2>내 프로필 수정</h2>
-  <form method="post">
+  <form method="POST" id="myprofile-form">
     {% csrf_token %}
     {{ form.as_p }}
     <h3>비밀번호 재설정</h3>

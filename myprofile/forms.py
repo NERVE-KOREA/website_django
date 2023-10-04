@@ -4,7 +4,7 @@ from signup.models import User
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['user_id']
+        fields = ['user_id', 'user_name']
 
 
 class PasswordResetForm(forms.Form):
