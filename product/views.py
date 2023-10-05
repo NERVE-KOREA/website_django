@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from signup.models import User
 
@@ -9,3 +10,20 @@ def bluepill_view(request):
 
 def brandstory_view(request):
     return render(request, "brandstory.html") 
+
+
+
+@login_required
+def product_add_to_cart(request):
+    user = request.user
+    if request.mehtod == 'POST':
+        
+
+    
+
+
+
+
+
+@login_required
+def product_add_and_payment(request):
