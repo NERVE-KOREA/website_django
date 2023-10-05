@@ -13,10 +13,10 @@ def brandstory_view(request):
 
 
 
-@login_required
-def product_add_to_cart(request):
-    user = request.user
-    if request.mehtod == 'POST':
+# @login_required
+# def product_add_to_cart(request):
+#     user = request.user
+#     if request.mehtod == 'POST':
         
 
     
@@ -25,5 +25,5 @@ def product_add_to_cart(request):
 
 
 
-@login_required
-def product_add_and_payment(request):
+# @login_required
+# def product_add_and_payment(request):
