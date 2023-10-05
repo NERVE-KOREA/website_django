@@ -1,0 +1,58 @@
+@import "reset.css";
+@import "style.css";
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; 
+}
+
+main {
+    margin-top: 9rem;
+    display: flex;
+    justify-content: center;
+}
+.mypg-container {
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.mypg-header {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+.main-content {
+    margin-bottom: 5rem;
+}
+.mypg-subheader {
+    font-size: 23px;
+    font-weight: 500;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid black;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f7f4f4;
+    padding: 2rem 0;
+}
+.num {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+.sen {
+    font-size: 0.9rem;
+}
+.profile-manage {
+    display: flex;
+    flex-direction: column;
+}
+.profile-manage a {
+    margin-top: 2rem;
+    color: #404040;
+}

@@ -23,7 +23,6 @@ def myprofile_view(request):
             update_session_auth_hash(request, user)  # 세션의 인증 해시 갱신
             return redirect('')
     else:
-        pdb.set_trace()
         form = UserProfileForm(instance=user)
         password_form = PasswordResetForm()
 

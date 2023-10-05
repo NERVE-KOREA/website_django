@@ -14,32 +14,32 @@
     <div class="global-wrap">
         <nav>
             <span class="nav-left">
-                <div class="logo-container"><a href="../"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
+                <div class="logo-container"><a href=""><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
                 <div>
                     <span><a href="../product/brandstory">BRAND STORY</a></span>
                     <span><a href="../product/redpill">RED PILL</a></span>
                     <span><a href="../product/bluepill">BLUE PILL</a></span>
-                </div>
+                </div> 
             </span>
             <span class="nav-right">
                 <div>
                     <div>
                         <span>{% if user.is_authenticated %}
-                            <a href="{% url 'logout' %}">로그아웃</a>
+                            <a href="{% url 'logout' %}">LOGOUT</a>
                           {% else %}
                             <a href="{% url 'login' %}">로그인</a>
+                            <span><a href="{% url 'signup' %}">회원가입</a></span>
                           {% endif %}
-                        <span><a href="../signup">회원가입</a></span>
                     </div> 
                     {% if user.is_authenticated %}
                     <div class="profile-section">
-                        <h2>내 프로필</h2>
-                        <p>유저 정보: {{ user.username }}</p>
+                        <!-- <span>내 프로필</span>
+                        <span><p>유저 정보: {{ user.username }}</p></span> -->
                         <!-- 추가 프로필 정보 표시 -->
-                        <a href="{% url 'myprofile' %}">프로필 수정</a>
+                        <span><a href="{% url 'myprofile' %}">MY PAGE</a></span>
                     </div>
                     {% endif %}
-                </div>  
+                </div>   
             </span>
         </nav>
         <main>

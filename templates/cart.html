@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+    <div class="cart-title">CART</div>
+    <div class="cart-subtitle">주문서 작성</div>
+    <div class="cart-list">
+        <form method="POST" id="cart-form">
+            {% csrf_token %}
+            <ul class="cart-submit">
+                <li>
+                    <div>배송지</div>
+                </li>
+                <li>
+                    <label for="id_user_id">받는 사람</label>
+                    <input type="text" name="user_name" maxlength="40" required="" id="">
+                </li>
+                <li>
+                    <label for="id_user_name">주소</label>
+                    <input type="text" name="" maxlength="10" required="" id="">
+                </li>
+                <li>
+                    <label for="id_phone_number">휴대전화</label>
+                    <input type="text" name="phone_number" maxlength="11" required="" id="id_phone_number">
+                </li>
+                <li>
+                    <label for="id_user_name">메세지 입력</label>
+                    <input type="text" name="" maxlength="10" required="" id="">
+                </li>
+                <li>
+                    <button class="cart-button" type="submit">결제하기</button></td>
+                </li>
+            </ul>
+        </form>
+    </div>
+{% endblock %}
