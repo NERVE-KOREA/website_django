@@ -1,47 +1,12 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nerve</title>
-    <link rel="stylesheet" href="{% static 'css/brandstory.css' %}">
+    <div class="bs-title">NERVE</div>
+    <div class="bs-subtitle">: 갓생인의 라이프스타일을 위한 주유/정비소</div>
 
-</head>
-<body>
-    <div class="global_wrap">
-        <nav>
-            <span class="nav-left">
-                <div class="logo-container"><a href="../"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
-                <div>
-                    <span><a href="../product/brandstory">BRAND STORY</a></span>
-                    <span><a href="../product/redpill">RED PILL</a></span>
-                    <span><a href="../product/bluepill">BLUE PILL</a></span>
-                </div>
-            </span>
-            <span class="nav-right">
-                <div>
-                    <div>
-                        <span>{% if user.is_authenticated %}
-                            <a href="{% url 'logout' %}">로그아웃</a>
-                          {% else %}
-                            <a href="{% url 'login' %}">로그인</a>
-                          {% endif %}
-                        <span><a href="../signup">회원가입</a></span>
-                    </div> 
-                    {% if user.is_authenticated %}
-                    <div class="profile-section">
-                        <h2>내 프로필</h2>
-                        <p>유저 정보: {{ user.username }}</p>
-                        <!-- 추가 프로필 정보 표시 -->
-                        <a href="{% url 'myprofile' %}">프로필 수정</a>
-                    </div>
-                    {% endif %}
-                </div>    
-            </span>
-        </nav>
-
-    </div>
-    
-</body>
-</html>
+    <div><img src="{% static 'img/brandstory.png' %}" alt=""></div>
+    <div>우리는 현재와 미래 모두 포기할 수 없습니다. 현재를 위해 일하고, 공부하고, 운동하고, 친구를 만나고, 연애를 합니다. 또한 미래를 위해 자기개발을 하고, 부업을 하고, 창업을 하고, 네트워킹을 합니다. 현재와 미래를 모두 챙기다 보면 바쁜 생활이 불가피합니다. 바쁘게 살다 보니 피로함과 수면 부족에 시달립니다. 일이 잘 안 풀릴 땐 곧잘 불안함도 찾아옵니다. ‘지금 하는 것이 맞는 건지’, ‘내가 지금 잘하고 있는 건지’, ‘나에 대한 믿음이 사실은 잘못된 것이 아닌지’와 같은 불안함 말이죠. 하지만 결국에 우리는 이 바쁜 삶을 멈출 수는 없습니다. 어찌되었든 현재를 책임져야 하고, 원하는 내 미래의 모습에 다가가야 하기 때문입니다.</div>
+    <div>위의 이야기에 공감을 하셨다면, NERVE는 당신을 위한 브랜드가 맞습니다. NERVE는 갓생인들을 위한 라이프스타일 브랜드이며, 더 나은 삶을 위한 제품들을 만듭니다. NERVE는 갓생인들의 방전된 몸에 주유를 하고자 하며, 첫 번째 제품 라인으로 영양제를 출시하게 되었습니다. 삶이 피로하고 수면이 부족한 갓생인들에게 도움이 되는 제품들입니다.  </div>
+    <div>* 상세 정보는 상단 메뉴의 버튼을 클릭하여 레드필/블루필 상세페이지를 확인해주세요.</div>
+{% endblock %}

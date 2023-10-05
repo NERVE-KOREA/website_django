@@ -67,7 +67,7 @@ table tr td input:hover,table tr td input:active {
 .signup-header {
     font-size: 32px;
     font-weight: 700;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 #signup-form {
     display: flex;

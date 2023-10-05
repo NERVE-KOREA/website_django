@@ -45,11 +45,12 @@ nav a:hover, a:active {
 nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 1.8rem 0;
-    height: 2rem;
+    height: 1rem;
     font-size: 0.8rem;
     font-weight: 400;
     background-color: transparent;

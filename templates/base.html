@@ -11,17 +11,31 @@
 <body>
     <nav>
         <span class="nav-left">
-            <div class="logo-container"><a href="../templates/index.html"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
+            <div class="logo-container"><a href=""><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
             <div>
-                <span><a href="../templates/brandstory.html">BRAND STORY</a></span>
-                <span><a href="../templates/redpill.html">RED PILL</a></span>
-                <span><a href="../templates/bluepill.html">BLUE PILL</a></span>
-            </div>
+                <span><a href="../product/brandstory">BRAND STORY</a></span>
+                <span><a href="../product/redpill">RED PILL</a></span>
+                <span><a href="../product/bluepill">BLUE PILL</a></span>
+            </div> 
         </span>
         <span class="nav-right">
             <div>
-                <span><a href="">로그인</a></span>
-                <span><a href="">회원가입</a></span>
+                <div>
+                    <span>{% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">로그아웃</a>
+                      {% else %}
+                        <a href="{% url 'login' %}">로그인</a>
+                      {% endif %}
+                    <span><a href="{% url 'signup' %}">회원가입</a></span>
+                </div> 
+                {% if user.is_authenticated %}
+                <div class="profile-section">
+                    <span>내 프로필</span>
+                    <span><p>유저 정보: {{ user.username }}</p></span>
+                    <!-- 추가 프로필 정보 표시 -->
+                    <span><a href="{% url 'myprofile' %}">프로필 수정</a></span>
+                </div>
+                {% endif %}
             </div>   
         </span>
     </nav>
