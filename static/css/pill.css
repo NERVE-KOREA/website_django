@@ -8,7 +8,7 @@ main {
 }
 
 .main-container {
-    width: 90rem;
+    padding: 0 3rem;
 }
 .mainpill-section {
     display: flex;
@@ -101,7 +101,7 @@ main {
 .detail-container {
     display: flex;
     justify-content: center;
-    padding: 0 3rem;
+    padding: 0 4rem;
     height: 350rem;
 }
 

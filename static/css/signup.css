@@ -1,0 +1,166 @@
+@import "reset.css";
+@import "style.css";
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10rem 3rem;
+}
+
+.login-header {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+
+table tr td {
+    display: flex;
+    width: 20rem;
+
+}
+table tr td label {
+    font-size: 1rem;
+    display: flex;
+    width: 10rem;
+    margin-bottom: 1rem;
+}
+table tr td input {
+    font-size: 1rem;
+    height: 2rem;
+    width: 20rem;
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    border: 1px solid #D9D9D9;
+}
+table tr td input:hover,table tr td input:active {
+    border: 1px solid black;
+}
+
+.signup-sen {
+    margin-top: 2.5rem;
+    font-size: 12px;
+}
+.go-signup {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    width: 20rem;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: 0.5rem;
+
+}
+
+.login-button {
+    font-size: 1rem;
+    width: 20rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+/* signup */
+
+.signup-header {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+#signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+.form-submit {
+    width: 45rem;
+    display: flex;
+    flex-direction: column;
+}
+.form-submit li input:hover, .form-submit li input:active {
+    border: 1px solid black;
+}
+.form-submit li:nth-child(1) {
+    border-bottom: none;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+}
+.form-submit li:nth-child(2) {
+    border-top: 1px solid black;
+}
+.form-submit li {
+    display: flex;
+    margin-bottom: 0.3rem;
+    border-bottom: 1px solid #ADADAD;
+    padding: 1.5rem 0;
+}
+
+.form-submit li label {
+    font-size: 15px;
+    margin: 15px 0 10px;
+    width: 10rem;
+}
+
+.form-submit li input {
+    width: 15rem;
+    padding: 10px;
+    background-color: transparent;
+    border: 1.5px solid #D9D9D9;
+}
+
+select {
+    padding: 8px;
+}
+
+.email-div {
+    margin-top: 0.2rem;
+}
+
+#id_email_notification_acceptance {
+    width: 15px; 
+    height: 15px;
+}
+
+.confirm {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+.confirm-check {
+    margin-top: 1rem;
+}
+.confirm-check span {
+    margin-left: 1rem;
+}
+.confirm-check a i {
+    color: #484747;
+}
+.toggle-trigger {
+    margin-left: 0.5rem;
+}
+#toggle-content1, #toggle-content2, #toggle-content3 {
+    display: none;
+    margin-top: 5px;
+    height: 120px;
+    padding: 8px;
+    font-size: 11px;
+    overflow: scroll;
+}
+
+.signup-button {
+    padding: 1rem;
+    margin: 0 auto;
+    width: 20rem;
+    background-color: black;
+    color: white;
+}
+
+.error {
+    margin-top: 14px;
+    margin-left: 8px;
+    font-size: 12px;
+}
