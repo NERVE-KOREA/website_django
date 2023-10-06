@@ -7,7 +7,6 @@ from django.shortcuts import get_object_or_404
 def cart_view(request):
     user = request.user
     return render(request, "cart.html")
-<<<<<<< HEAD
 
 @login_required
 def product_add_to_cart_redpill(request):
@@ -33,5 +32,3 @@ def product_add_to_cart_redpill(request):
 
 # @login_required
 # def product_add_and_payment(request):
-=======
->>>>>>> 70258f72c7b725dc9da3193d46f6d15b35e2ccfe
