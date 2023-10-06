@@ -13,7 +13,7 @@
 <body>
     <nav>
         <span class="nav-left">
-            <div class="logo-container"><a href=""><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
+            <div class="logo-container"><a href="../"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
             <div>
                 <span><a href="../product/brandstory">BRAND STORY</a></span>
                 <span><a href="../product/redpill">RED PILL</a></span>
@@ -36,6 +36,7 @@
                     <span><p>유저 정보: {{ user.username }}</p></span> -->
                     <!-- 추가 프로필 정보 표시 -->
                     <span><a href="{% url 'myprofile' %}">MY PAGE</a></span>
+                    <span><a href="{% url 'cart' %}">CART</a></span>
                 </div>
                 {% endif %}
             </div>   
