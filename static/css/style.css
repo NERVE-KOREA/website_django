@@ -25,10 +25,7 @@
 
 
 .global-wrap {
-    width: 90rem;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+    height: 100vh;  
 }
 
 /*  */
@@ -93,9 +90,7 @@ nav {
     padding: 0.7rem 1rem;
     border-radius: 0.7rem;
 }
-.nav-right div span:nth-child(1) {
-    margin-right: 3rem;
-}
+
 .nav-right div span:nth-child(2) {
     margin-right: 2rem;
 }

@@ -10,15 +10,14 @@ body {
 
 main {
     width: 90rem;
+    margin: 0 auto;
 }
 
 /*  */
 /* main-section 1 */
 /*  */
 .main-section1-add {
-    width: 90rem;
     height: 45rem;
-    margin-top: 5.5rem;
 }
 
 .main-section1-img {
@@ -58,6 +57,7 @@ main {
     display: flex; 
     overflow: hidden;
     white-space: nowrap;
+    margin-top: 3rem;
 }
 
 .banner1 {
@@ -332,23 +332,26 @@ main {
     text-decoration: none;
 }
 
-.main-section4-imgs {
-    overflow: hidden;
+.section4-wrap {
+    display: flex; 
+    margin-top: 3rem;
+    justify-content: space-around;
 }
-.section4-container {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
 
-    position: relative;
+.section4-wrap div {
+    width: 17rem;
 }
-.sec4-flow-wrap {
-    width: 23rem;
-}
-.sec4-flow-wrap img {
-    height: 30rem;
+.section4-wrap div img {
     width: 100%;
 }
+/* 
+.main-section4-imgs.original {
+    animation: rollingleft1 15s linear infinite;
+}
+.main-section4-imgs.clone {
+    animation: rollingleft2 15s linear infinite;
+} */
+
 
 /*  */
 /* banner2 */

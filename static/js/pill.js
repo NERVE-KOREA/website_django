@@ -29,3 +29,28 @@ window.addEventListener('scroll', () => {
 	const bwLeft = window.scrollX;
 	document.querySelector('nav').style.transform = `translateX(-${bwLeft}px)`;
   });
+
+
+// +,- 증감되도록
+let plus = document.querySelector(".plus");
+let minus = document.querySelector(".minus");
+let result = document.querySelector(".result");
+let totalcost = document.querySelector(".totalcost");
+let i = 1;
+plus.addEventListener("click", () => {
+    i++
+    result.textContent = i;
+    let totalcostNum = i*39000;
+    totalcost.textContent = "₩" + totalcostNum.toLocaleString();
+
+});
+minus.addEventListener("click", () => {
+    if(i > 0 ) {
+        i--
+        result.textContent = i;
+        let totalcostNum = i*39000;
+        totalcost.textContent = "₩" + totalcostNum.toLocaleString();
+    }else {
+        totalcost.textContent = "₩" + 0
+    }
+})
