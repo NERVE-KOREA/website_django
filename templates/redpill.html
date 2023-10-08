@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nerve</title>
     <link rel="stylesheet" href="{% static 'css/pill.css' %}">
+    <script src="https://kit.fontawesome.com/58e1f810db.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -15,14 +16,14 @@
         <nav>
             <span class="nav-left">
                 <div class="logo-container"><a href="../"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
-                <div>
+                <div class="not-logo">
                     <span><a href="../product/brandstory">BRAND STORY</a></span>
                     <span><a href="../product/redpill">RED PILL</a></span>
                     <span><a href="../product/bluepill">BLUE PILL</a></span>
                 </div> 
             </span>
             <span class="nav-right">
-                <div style="display: flex;">
+                <div class="nav-right-content">
                     <div>
                         {% if user.is_authenticated %}
                         <span><a href="{% url 'logout' %}">LOGOUT</a></span>
@@ -40,22 +41,25 @@
                         <span><a href="{% url 'cart' %}">CART</a></span>
                         {% endif %}
                     </div>
-                </div>   
+                </div>
+                <div class="burger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </span>
         </nav>
         <main>
             <div class="main-container">
                 <div class="mainpill-section">
                     <div class="img-container">
-                        <img src="../img/purchase-main1.png" alt="">
+                        <img src="{% static 'img/main_woman1.png' %}" alt="">
                         <div>
                             <img src="" alt="">
                         </div>
                     </div>
                     <div class="mainpill-words">
                         <div class="main-tag">
-                            <div>#종합비타민</div>
-                            <div>#미네랄</div>
+                            <div class="tag-red">#종합비타민</div>
+                            <div class="tag-red">#미네랄</div>
                         </div>
                         <div class="word1">
                             <div style="font-size: 25px; font-weight: 800;">RED PILL</div>
@@ -105,16 +109,16 @@
                     </div>
                     <div class="info-detail" id="info-detail">
                         <div class="sector" id="info-detail-first">
-                            <img class="info-detail-img" src="../img/purchase-main1.png" alt="">
+                            <img class="info-detail-img" src="{% static 'img/redpill0.png' %}" alt="">
                             <div>
                                 <div class="pill-logo">
-                                    <img src="../img/logo_nerve_black.svg" alt="">
+                                    <img src="{% static 'img/logo_nerve_black.svg' %}" alt="">
                                 </div>
                                 <div class="pill-logo-sen">
-                                    미래를 위한 갓생 마켓
+                                    현미(現未)를 위한 갓생 마켓
                                 </div>
                                 <div class="main-sen">
-                                    너브는 2030의 미래를 위한 행동들을 돕기 위해 탄생한 브랜드입니다. 지금 너브의 첫 여정이 시작됩니다.
+                                    너브는 갓생인의 라이프스타일에 도움이 되기 위해 탄생한 브랜드입니다. 너브의 첫 여정이 시작됩니다.
                                 </div>
                             </div>
                         </div>
@@ -122,16 +126,24 @@
                             <header class="sector-header" style="font-size: 20px;">CHECK POINT</header>
                             <div>□ 에너지 생성&활용을 위한 비타민 B군 고함유*</div>
                             <div>□ 면역 증진을 위한 균형잡힌 비타민과 미네랄</div>
-                            <div>□ 목 넘김이 수월한 800mg의 알약 크기</div>
-                            <div>□ 섭취 습관이 어렵지 않도록 1일 2정</div>
+                            <div>□ 안심할 수 있는 프리미엄 원료</div>
+                            <div>□ 편안한 목 넘김, 1일 2정, 800mg</div>
                             <div>□ 휴대하기 좋은 영양제 통 무게 50g</div>
-                            <div>*일일 성분 기준치 대비</div>
+                            <div class="sen-last">*일일 성분 기준치 대비</div>
                         </div>
                         <div class="sector" style="border-bottom: none;">
                             <div class="sector-header" style="font-size: 20px;">MD's COMMENT</div>
                             <div>해당 제품은 갓생을 사는 사회초년생을 위해 기획되었습니다. 이 제품은 여러분들이 많은 업무와 학업 및 타 활동들을 소화하는 데에 도움이 될 것입니다. 또한
                                 시각적으로 어디든 전시 하여도 어울리는 디자인입니다.</div>
-                            <div style="margin-top: 2rem; width: 100%"> <img src="../img/section3-1.png" style="width: 100%" alt=""> </div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/redpill1.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/redpill2.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/redpill3.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/redpill4.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/redpill5.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/redpill6.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/redpill7.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/redpill8.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/redpill9.png' %}" style="width: 100%" alt=""></div>
                         </div>
                     </div>
                     <div class="pill-nav-detail">
@@ -237,12 +249,12 @@
                         </div>
                         <div class="right-box">
                             <div class="box-tag">
-                                <span style="font-size: 6px;">#종합비타민</span><span style="font-size: 6px;">#미네랄</span>
+                                <span class="box-red" style="font-size: 6px;">#종합비타민</span><span class="box-red" style="font-size: 6px;">#미네랄</span>
                             </div>
                             <div class="sector-right">
                                 <header class="sector-header" style="margin-bottom:0.2rem">RED PILL</header>
-                                <header class="sector-header" style="font-size: 12px; margin-bottom: 0.5rem;">ENERGY SUPPORT & BALANCED VITAMIN</header>
-                                <div style="color: #404040; font-size: 12px; margin-left: 3px;">에너지 보충 & 종합비타민 영양제</div>
+                                <header class="sector-header" style="font-size: 12px; margin-bottom: 0.3rem;">ENERGY SUPPORT & BALANCED VITAMIN</header>
+                                <div style="color: #404040; font-size: 15px; margin-left: 3px;">에너지 보충 & 종합비타민 영양제</div>
                             </div>
                             <div class="sector-right">
                                 <header class="right-header">제품 설명</header>

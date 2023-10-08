@@ -25,10 +25,10 @@ document.addEventListener('scroll', () => {
     }
 });
 
-window.addEventListener('scroll', () => {
-	const bwLeft = window.scrollX;
-	document.querySelector('nav').style.transform = `translateX(-${bwLeft}px)`;
-  });
+// window.addEventListener('scroll', () => {
+// 	const bwLeft = window.scrollX;
+// 	document.querySelector('nav').style.transform = `translateX(-${bwLeft}px)`;
+//   });
 
 
 // +,- 증감되도록

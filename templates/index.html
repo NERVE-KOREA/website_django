@@ -6,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nerve</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="https://kit.fontawesome.com/58e1f810db.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="global-wrap">
         <nav>
             <span class="nav-left">
                 <div class="logo-container"><a href="../"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
-                <div>
+                <div class="not-logo">
                     <span><a href="../product/brandstory">BRAND STORY</a></span>
                     <span><a href="../product/redpill">RED PILL</a></span>
                     <span><a href="../product/bluepill">BLUE PILL</a></span>
                 </div> 
             </span>
             <span class="nav-right">
-                <div style="display: flex;">
+                <div class="nav-right-content">
                     <div>
                         {% if user.is_authenticated %}
                         <span><a href="{% url 'logout' %}">LOGOUT</a></span>
@@ -37,21 +38,27 @@
                         <span><a href="{% url 'cart' %}">CART</a></span>
                         {% endif %}
                     </div>
-                </div>   
+                </div>
+                <div class="burger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </span>
         </nav>
         <main>
             <div class="main-container">
                 <div class="main-section1-add">
-                    <div class="main-section1-img">
-                        <img src="{% static 'img/20230941.png' %}" alt="">
+                    <div class="main-section1-img fade">
+                        <img src="{% static 'img/main_main1.png' %}" alt="">
+                        <div><a href="../product/brandstory">브랜드스토리 보러가기</a><i class="fa-solid fa-arrow-right"></i></div>
                     </div>
-                    <!-- <div class="sentence">
-                        <div class="small-pill">RED PILL</div>
-                        <div class="sentence-title">우리 몸이 자동차라면,</div>
-                        <div class="sentence-title">레드필은 기름이자 윤활유야.</div>
-                        <div class="sentence-subtitle">ENERGY SUPPORT & BALANCED VITAMIN.</div>
-                    </div> -->
+                    <div class="main-section1-img fade">
+                        <img src="{% static 'img/main_main2.png' %}" alt="">
+                        <div><a href="../product/redpill">레드필 보러가기</a><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                    <div class="main-section1-img fade">
+                        <img src="{% static 'img/main_main3.png' %}" alt="">
+                        <div><a href="../product/bluepill">블루필 보러가기</a><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
                 </div>
                 <div class="banner-wrap">
                     <div class="banner1">
@@ -86,9 +93,9 @@
                     <div class="main-section2-main">
                         <table>
                             <tr>
-                                <td><img src="{% static 'img/section2-img-1.png' %}" style="width: 20rem; margin-right: 1.5rem;" alt=""></td>
-                                <td><img src="{% static 'img/section2-img-2.png' %}" style="width: 20rem; margin-right: 1.5rem;" alt=""></td>
-                                <td><img src="{% static 'img/section2-img-3.png' %}" style="width: 20rem;" alt=""></td>
+                                <td><img src="{% static 'img/bs1.png' %}" style="width: 20rem; margin-right: 1.5rem;" alt=""></td>
+                                <td><img src="{% static 'img/bs2.png' %}" style="width: 20rem; margin-right: 1.5rem;" alt=""></td>
+                                <td><img src="{% static 'img/bs3.png' %}" style="width: 20rem;" alt=""></td>
                             </tr>
                             <tr>
                                 <td>
@@ -111,18 +118,22 @@
                                 </td>
                             </tr>
                         </table>
-    
-                        <!-- <div class="section2-img-container1">
-    
-                        </div>
-                        <div class="section2-img-container2">
-    
-                        </div>
-                        <div class="section2-img-container3">
-    
-                        </div> -->
                     </div>
-                    <a href="" class="a-button">브랜드 스토리 보러가기</a>
+                    <div class="main-secion2-mobile">
+                        <div class="section-mobile-img">
+                            <img id="imgSlide" src="{% static 'img/bs1.png' %}" alt="">
+                            <div class="playbut-container">
+                                <button class="playbut" onclick="next();"><i class="fa-solid fa-play fa-rotate-180"></i></button>
+                                <button class="playbut" onclick="prev();"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                            <div class="slide-sen">
+                                <div class="slide-sen1">ONLY FOR BORN IN 1990~2000</div>
+                                <div class="slide-sen2">미래를 위해 갓생을 살고 있는<br>20대 중반부터 30대 초반을 위한<br>영양제 브랜드 NERVE입니다.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <a href="../product/brandstory" class="a-button">브랜드 스토리 보러가기</a>
                 </div>
                 <div class="main-section3-ourwork">
                     <div class="main-section3-header">
@@ -162,33 +173,30 @@
                                 </td>
                             </tr>
                         </table>
-    
                     </div>
-                    
-                    <!-- <div class="section3-main">
-                        <div class="section3-pht">
-                            <img src="../img/section3-1.png" alt="">
-                        </div>
-                        <div class="section3-text-container">
-                            <div class="section3-text">
-                                <div class="section3-text-title">RED PILL</div>
-                                <div class="section3-text-subtitle">Energy Support<br>& Balanced Vitamin</div>
+                    <div class="main-section3-mobile">
+                        <img src="{% static 'img/main_woman1.png' %}" style="width: 100%;" alt="">
+                        <div class="section3-img-text">
+                            <div class="color-tag-a">
+                                <div >#종합비타민</div>
+                                <div>#미네랄</div>
                             </div>
-                            <div class="a-button section3-btn1">TAKE YOUR RED PILL</div>
+                            <div style="font-weight: 700; font-size: 21px; margin-bottom: 0.5rem;"><span>레드필</span> <span>RED PILL</span></div>
+                            <div style="font-weight: 600; font-size: 14px; margin-bottom: 1rem;">ENERGY SUPPORT& BALANCED VITAMIN</div>
+                            <div style="font-size: 13px;">60 TABLETS / 350mg</div>
+                        </div>
+                        <img src="{% static 'img/main_man1.png' %}" style="width: 100%; " alt="">
+                        <div class="section3-img-text">
+                            <div class="color-tag-b">
+                                <div>#마그네슘</div>
+                                <div>#기능 유지</div>
+                            </div>
+                            <div style="font-weight: 700; font-size: 21px; margin-bottom: 0.5rem;"><span>블루필</span> <span>BLUE PILL</span></div>
+                            <div style="font-weight: 600; font-size: 14px; margin-bottom: 1rem;">HEALTHY NERVE FUNCTION MAGNESIUM</div>
+                            <div style="font-size: 13px;">60 TABLETS / 350mg</div>
                         </div>
                     </div>
-                    <div class="section3-main">
-                        <div class="section3-text-container">
-                            <div class="section3-text">
-                                <div class="section3-text-title">BLUE PILL</div>
-                                <div class="section3-text-subtitle">Energy Support<br>& Balanced Vitamin</div>
-                            </div>
-                            <div class="a-button section3-btn2">TAKE YOUR BLUE PILL</div>
-                        </div>
-                        <div class="section3-pht">
-                            <img src="../img/section3-2.png" alt="">
-                        </div>
-                    </div> -->
+
                 </div>
                 <div class="section4">
                     <div class="section4-header">
@@ -234,28 +242,64 @@
                     </div> 
                 </div> -->
             </div>
-            <footer>
-                <div class="footer-text">
-                    <div>
-                        <div>
-                            <span><a href="https://www.instagram.com/nervekorea/">Instagram</a></span>
-                            <span><a href="https://www.instagram.com/nervekorea/">Contact</a></span>
-                        </div>
-                        <div>Nervekorea@gmail.com</div>
-                    </div>
-                    <div>
-                        <div>Nerve.</div>
-                        <div>@ 2023</div>
-                    </div>
-                    <div>
-                        <div>145, Anam-ro, Seongbuk-gu, Seoul,</div>
-                        <div>Republic of Korea</div>
-                    </div>
-                </div> 
-            </footer>        
+       
         </main>
-
+        <footer>
+            <div class="footer-text">
+                <div>
+                    <div>
+                        <span><a href="https://www.instagram.com/nervekorea/">Instagram</a></span>
+                        <span><a href="https://www.instagram.com/nervekorea/">Contact</a></span>
+                    </div>
+                    <div>Nervekorea@gmail.com</div>
+                </div>
+                <div>
+                    <div>Nerve.</div>
+                    <div>@ 2023</div>
+                </div>
+                <div>
+                    <div>145, Anam-ro, Seongbuk-gu, Seoul,</div>
+                    <div>Republic of Korea</div>
+                </div>
+            </div> 
+        </footer>   
     </div>
     <script src="{% static 'js/index.js' %}"></script>
+    <script>
+
+let imgSlide = document.querySelector("#imgSlide");
+let imgList = ["{% static 'img/bs1.png' %}","{% static 'img/bs2.png' %}","{% static 'img/bs3.png' %}"];
+let slidesen1 = document.querySelector(".slide-sen1");
+let slidesen1List = ['ONLY FOR BORN IN 1990~2000', 'EASY FOR SWALLOW', 'QUALITY BY PROFESSIONALS'];
+let slidesen2 = document.querySelector(".slide-sen2");
+let slidesen2List = ['미래를 위해 갓생을 살고 있는<br>20대 중반부터 30대 초반을 위한<br>영양제 브랜드 NERVE입니다.', '입문자도 삼키기 쉽게 만들었으며,<br>바쁘게 사는 2030만을 위한<br>영양성분 구성을 하였습니다.', 'NERVE와 함께 하는 현업 전문가와<br>약사 분들이 같이 기획하고 제조합니다.']
+let i = 0;
+
+function prev(){ // 이전
+    i--;
+    imgSlide.src = imgList[i];
+    slidesen1.textContent = slidesen1List[i];
+    slidesen2.innerHTML = slidesen2List[i];
+    if(i<0){
+        i = imgList.length-1;
+        imgSlide.src = imgList[i];
+        slidesen1.textContent = slidesen1List[i];
+        slidesen2.innerHTML = slidesen2List[i];
+    }
+    
+};
+function next(){ // 다음
+    i++;
+    imgSlide.src = imgList[i];
+    slidesen1.textContent = slidesen1List[i];
+    slidesen2.innerHTML = slidesen2List[i];
+    if(i >= imgList.length){
+        i = 0;
+        imgSlide.src = imgList[i];
+        slidesen1.textContent = slidesen1List[i];
+        slidesen2.innerHTML = slidesen2List[i];
+    }
+};
+    </script>
 </body>
 </html>

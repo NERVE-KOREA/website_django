@@ -16,9 +16,9 @@ main {
 /*  */
 /* main-section 1 */
 /*  */
-.main-section1-add {
-    height: 45rem;
-}
+/* .main-section1-add {
+
+} */
 
 .main-section1-img {
     width: 90rem;
@@ -26,6 +26,38 @@ main {
 }
 .main-section1-img img {
     width: 100%;
+}
+.main-section1-img div {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 99999;
+    top: 500px;
+    margin-left: 9rem;
+    width: 14rem;
+    border: 1px solid black;
+    padding: 1rem 1rem; 
+
+}
+.main-section1-img div a {
+    text-decoration: none;
+    color: black;
+}
+.main-section1-img div:hover {
+    background-color: white;
+    transition: 0.5s;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
 }
 /* .sentence {
     color: #ffffff;
@@ -57,7 +89,7 @@ main {
     display: flex; 
     overflow: hidden;
     white-space: nowrap;
-    margin-top: 3rem;
+
 }
 
 .banner1 {
@@ -188,11 +220,11 @@ main {
     box-shadow: 0.5px 0.5px 0.5px black;
     text-decoration: none;
     color: black;
-    margin-top: 3rem;
-    margin-left: 1rem;
+    margin-top: 5rem;
 }
 .a-button:hover, .a-button:active {
-    background-color: var(--nerve-main-color2);
+    background-color: black;
+    color: white;
     transition: ease-in-out 0.3s ;
 } 
 
@@ -385,6 +417,18 @@ main {
     }
 } */
 
+@media ( min-width: 768px) {
+    .burger {
+        display: none;
+    }
+    .main-secion2-mobile {
+        display: none;
+    }
+    .main-section3-mobile {
+        display: none;
+    }
+}
+
 @media ( max-width: 767px) {
     nav {
         width: 100%;
@@ -395,23 +439,101 @@ main {
     main {
         width: 100%;
     }
-
+   .nav-right-content, .not-logo {
+        display: none;
+    }
     .main-section1-add {
-        height: 30rem;
         width: 100%;
         display: flex;
         justify-content: center;
-        overflow: hidden;
+    }
+    .main-section1-img div {
+        position: relative;
+        top: -3rem;
+        left: 2rem;
+        width: 7rem;
+        margin-left: 0;
+        font-size: 5px;
+        padding: 0.5rem 0.5rem;
     }
     .main-section1-img {
-        width: 60rem;
+        width: 100%;
+        
     }
     .main-section1-img img {
         width: 100%;
     }
+    .banner1 {
+        height: 0.6rem;
+        margin-top: 1rem;
+    }
+    .flow-wrap {
+        font-size: 18px;
+    }
     .main-section2-brandstory {
         width: 100%;
+        height: 100%;
+    }
+    .main-section2-main {
+        display: none;
+    }
+    .section-mobile-img {
+        width: 100%;
+    }
+    .section-mobile-img img {
+        width: 100%;
+    }
+    .a-button {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        font-size: 12px;
+        padding: 0.8rem 3rem;
     }
 
+    .main-section3-main {
+        display: none;
+    }
+    .main-section3-ourwork {
+        height: auto;
+    }
 
+}
+
+.playbut-container {
+    position: relative;
+    top: -17rem;
+    display: flex;
+    padding: 0 1.5rem;
+    justify-content: space-between;
+
+}
+.playbut {
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    color: white;
+}
+.slide-sen {
+    color: white;
+    position: relative;
+    top: -10rem;
+    text-align: start;
+    margin-left: 2rem;
+
+}
+.slide-sen1 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.slide-sen2 {
+    line-height: 1.3;
+}
+
+.section3-img-text {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+}
+.main-section3-mobile {
+    padding-bottom: 1rem;
 }
