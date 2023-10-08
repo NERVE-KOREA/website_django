@@ -2,28 +2,37 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.shortcuts import render, redirect
 from .forms import UserProfileForm, PasswordResetForm
+from django.contrib import messages
 import pdb
 
 
 @login_required
 def myprofile_view(request):
     user = request.user
+    return render(request, 'myprofile.html')
+
+
+def myprofile_password_authentication(request):
+    user = request.user
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=user)
-        password_form = PasswordResetForm(request.POST)
+        password = request.POST['password']
+        if user.check_password(password):
+            return redirect('/myprofile/password_reset')
+        else:
+            messages.error(request, '비밀번호가 일치하지 않습니다.')
+    return render(request, 'password.html')
 
-        if form.is_valid():
-            form.save()
-            return redirect('myprofile')
-
-        if password_form.is_valid():
-            new_password = password_form.cleaned_data['password1']
-            user.set_password(new_password)
-            user.save(using=user._db)
-            update_session_auth_hash(request, user)  # 세션의 인증 해시 갱신
-            return redirect('')
-    else:
-        form = UserProfileForm(instance=user)
-        password_form = PasswordResetForm()
-
-    return render(request, 'myprofile.html', {'form': form, 'password_form': password_form})
+def myprofile_password_reset(request):
+    user = request.user
+    if request.method == 'POST':
+        new_password = request.POST['new_password']
+        if new_password == user.password:
+            messages.error(request, '새로운 비밀번호는 기존 비밀번호와 동일할 수 없습니다.')
+            return redirect('/myprofile/password_reset')
+        
+        user.set_password(new_password)
+        user.save()
+        update_session_auth_hash(request, user)  # 세션 유지
+        messages.success(request, '비밀번호가 변경되었습니다.')
+        return redirect('myprofile')  # 변경 완료 후 프로필 페이지로 이동
+    return render(request, 'password_reset.html')
