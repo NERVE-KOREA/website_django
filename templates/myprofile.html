@@ -1,46 +1,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main>
-  <div class="mypg-container">
-      <div class="mypg-header">MY PAGE</div>
-      <div class="main-content">
-          <div class="mypg-subheader"><span>주문현황</span><span style="margin-left:4px; font-size: 16px; color: #ADADAD;">(최근 3개월 기준)</span></div>
-          <div class="main-container">
-              <div class="main-var">
-                  <div class="num">0</div>
-                  <div class="sen">입금전</div>
-              </div>
-              <div class="main-var">
-                  <div class="num">0</div>
-                  <div class="sen">배송준비중</div>
-              </div>
-              <div class="main-var">
-                  <div class="num">0</div>
-                  <div class="sen">배송중</div>
-              </div>
-              <div class="main-var">
-                  <div class="num">0</div>
-                  <div class="sen">배송완료</div>
-              </div>
-          </div>
-      </div>
-      <div class="main-content">
-          <div class="mypg-subheader">주문내역 조회</div>
-          <div style="text-align: center; padding-top: 3rem;">주문 내역이 없습니다.</div>
-      </div>
-      <div class="main-content">
-          <div class="mypg-subheader">계정 관리</div>
-          <div class="profile-manage">
-              <a href="">회원정보 수정</a>
-              <!-- <a href="">비밀번호 변경</a> -->
-          </div>
-          
-      </div>
-      
+    <main>
+        <div class="mypg-container">
+            <div class="mypg-header">MY PAGE</div>
+            <div class="main-content">
+                <div class="mypg-subheader"><span>주문현황</span><span style="margin-left:4px; font-size: 16px; color: #ADADAD;">(최근 3개월 기준)</span></div>
+                <div class="main-container">
+                    <div class="main-var">
+                        <div class="num">0</div>
+                        <div class="sen">입금전</div>
+                    </div>
+                    <div class="main-var">
+                        <div class="num">0</div>
+                        <div class="sen">배송준비중</div>
+                    </div>
+                    <div class="main-var">
+                        <div class="num">0</div>
+                        <div class="sen">배송중</div>
+                    </div>
+                    <div class="main-var">
+                        <div class="num">0</div>
+                        <div class="sen">배송완료</div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="mypg-subheader">주문내역 조회</div>
+                <div style="text-align: center; padding-top: 3rem;">주문 내역이 없습니다.</div>
+            </div>
+            <div class="main-content">
+                <div class="mypg-subheader">계정 관리</div>
+                <div class="profile-manage">
+                    <a href="">회원정보 수정</a>
+                </div>
+                
+            </div>
+            
 
-  </div>
-</main>
+        </div>
+    </main>
   <!-- <h2>내 프로필 수정</h2>
   <form method="POST" id="myprofile-form">
     {% csrf_token %}

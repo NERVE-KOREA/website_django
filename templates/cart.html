@@ -2,46 +2,73 @@
 
 {% block content %}
 {% load static %}
-    <div class="cart-title">CART</div>
-    <div class="cart-subtitle">주문서 작성</div>
-    <div class="cart-list">
-        <form method="POST" id="cart-form">
-            {% csrf_token %}
-            <ul class="cart-submit">
-                <li>
-                    <div>배송지</div>
-                </li>
-                <li>
-                    <label for="id_user_id">받는 사람</label>
-                    <input type="text" name="user_name" maxlength="40" required="" id="">
-                </li>
-                <li>
-                    <label for="id_user_name">주소</label>
-                    <div>
-                        <input type="text" id="sample4_postcode" placeholder="우편번호">
-                        <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-                        <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
-                        <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
-                        <span id="guide" style="color:#999;display:none"></span>
-                        <input type="text" id="sample4_detailAddress" placeholder="상세주소">
-                        <input type="text" id="sample4_extraAddress" placeholder="참고항목">
-                    </div>
-                    <input type="text" name="" maxlength="10" required="" id="">
-                </li>
-                <li>
-                    <label for="id_phone_number">휴대전화</label>
-                    <input type="text" name="phone_number" maxlength="11" required="" id="id_phone_number">
-                </li>
-                <li>
-                    <label for="id_user_name">메세지 입력</label>
-                    <input type="text" name="" maxlength="10" required="" id="">
-                </li>
-                <li>
-                    <button class="cart-button" type="submit">결제하기</button></td>
-                </li>
-            </ul>
-        </form>
+    <div class="cart-container">
+        <div class="cart-title">CART</div>
+        <div class="cart-subtitle">
+            <span>01 장바구니</span><span> > </span><span style="color: black">02 주문서 작성</span><span> > </span><span>03 주문완료</span>
+        </div>
+        <div class="cart-deliver">
+            <form method="POST" id="cart-form">
+                {% csrf_token %}
+                <div class="list-title">배송지</div>
+                <ul class="cart-submit">
+                    <li>
+                        <label for="id_user_id">받는 사람</label>
+                        <input style="width: 7rem;" type="text" name="user_name" maxlength="40" required="" id="id_user_id">
+                    </li>
+                    <li>
+                        <label for="id_user_name">주소</label>
+                        <span>
+                            <input type="text" id="sample4_postcode" placeholder="우편번호">
+                            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 검색"><br><br>
+                            <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
+                            <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
+                            <span id="guide" style="color:#999;display:none"></span>
+                            <input type="text" id="sample4_detailAddress" placeholder="상세주소"><br><br>
+                            <input type="text" id="sample4_extraAddress" placeholder="참고항목">
+                        </span>
+                    </li>
+                    <li>
+                        <label for="id_phone_number">휴대전화</label>
+                        <input type="text" name="phone_number" maxlength="13" required="" id="id_phone_number">
+                    </li>
+                    <li>
+                        <label for="id_user_message">메세지 입력</label>
+                        <input type="text" name="" maxlength="10" required="" id="id_user_message">
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="cart-item">
+            <div class="list-title">주문상품</div>
+            <div class="list-table">
+                <div>주문상품</div>
+                <div>수량</div>
+                <div>주문금액</div>
+                <div>배송비</div>
+            </div>
+            <div>
+                <div>총 주문상품 n개</div>
+                <div>.</div>
+            </div>
+        </div>
+        <div class="pay">
+            <div class="list-title">결제수단</div>
+            <div>결제수단 선택</div>
+            <table>
+                <tr><td>신용/체크카드</td></tr>
+                <tr><td>휴대폰 결제</td></tr>
+                <tr><td>무통장입금</td></tr>
+                <tr><td>무통장입금 (가상계좌)</td></tr>
+                <tr><td>카카오페이</td></tr>
+                <tr><td>토스페이</td></tr>
+                <tr><td>계좌이체</td></tr>
+                <tr><td>페이코</td></tr>
+            </table>
+        </div>
+        <div><button class="cart-button" type="submit">결제하기</button></div>
     </div>
+
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -99,5 +126,42 @@
             }
         }).open();
     }
-</script><
+</script>
+<script>
+    var autoHypenPhone = function(str){
+    str = str.replace(/[^0-9]/g, '');
+    var tmp = '';
+    if( str.length < 4){
+        return str;
+    }else if(str.length < 7){
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3);
+        return tmp;
+    }else if(str.length < 11){
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3, 3);
+        tmp += '-';
+        tmp += str.substr(6);
+        return tmp;
+    }else{              
+        tmp += str.substr(0, 3);
+        tmp += '-';
+        tmp += str.substr(3, 4);
+        tmp += '-';
+        tmp += str.substr(7);
+        return tmp;
+    }
+
+    return str;
+}
+
+var phoneNum = document.getElementById('id_phone_number');
+
+phoneNum.onkeyup = function(){
+  console.log(this.value);
+  this.value = autoHypenPhone( this.value ) ;  
+}
+</script>
 {% endblock %}

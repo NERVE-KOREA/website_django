@@ -11,10 +11,11 @@ main {
     width:90rem;
     padding-top: 6rem;
     line-height: 25px;
+    margin: 0 auto;
 }
 
 .main-container {
-    padding: 0 3rem;
+    padding: 0 4rem;
 }
 .mainpill-section {
     display: flex;
@@ -107,7 +108,7 @@ main {
 .detail-container {
     display: flex;
     justify-content: center;
-    padding: 0 4rem;
+    padding: 0 5rem;
     height: 350rem;
 }
 
@@ -261,7 +262,7 @@ main {
 .right-top-sen {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     padding: 0 0.5rem;
 }
 
@@ -287,9 +288,9 @@ main {
     margin-left: 3px;
 }
 .sector-right {
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     border-bottom: 0.5px solid #8D8D8D;
-    margin-bottom: 1.3rem;
+    margin-bottom: 0.5rem;
 }
 .right-header {
     font-size: 13px;
