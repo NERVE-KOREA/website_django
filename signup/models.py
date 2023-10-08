@@ -24,7 +24,7 @@ class UserManager(BaseUserManager):
         return user 
 
     # python manage.py createsuperuser 사용 시 해당 함수가 사용됨
-    def create_superuser(self, user_id,  user_name, phone_number, email, gender, birthdate, password=None):
+    def create_superuser(self, user_id,  user_name, phone_number, email, gender, birthdate,sign_up_path, password=None):
       
         user = self.create_user(
             user_id = user_id,
@@ -34,10 +34,10 @@ class UserManager(BaseUserManager):
             gender = gender,
             email_notification_acceptance = False,
             birthdate = birthdate,
-            password = password
+            password = password,
+            sign_up_path = sign_up_path
         )
         user.is_admin = True
-        user.is_staff = True
         user.save(using=self._db)
         return user
 
@@ -66,7 +66,7 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'user_id'
-    REQUIRED_FIELDS = ['user_name', 'phone_number','gender','email','birthdate']
+    REQUIRED_FIELDS = ['user_name', 'phone_number','gender','email','birthdate','sign_up_path']
 
     objects = UserManager()
 

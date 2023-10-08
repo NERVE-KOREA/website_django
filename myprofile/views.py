@@ -29,7 +29,6 @@ def myprofile_password_reset(request):
         if new_password == user.password:
             messages.error(request, '새로운 비밀번호는 기존 비밀번호와 동일할 수 없습니다.')
             return redirect('/myprofile/password_reset')
-        
         user.set_password(new_password)
         user.save()
         update_session_auth_hash(request, user)  # 세션 유지
