@@ -10,6 +10,7 @@ main {
     margin-top: 9rem;
     display: flex;
     justify-content: center;
+    margin: 5rem 3rem;
 }
 .mypg-container {
     width: 50rem;

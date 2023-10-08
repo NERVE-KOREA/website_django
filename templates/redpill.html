@@ -74,12 +74,19 @@
                         </div>
                         <div class="word3">
                             <span style="font-weight: 600;">[RED PILL] ENERGY SUPPORT & BALANCED VITAMIN</span>
-                            <!-- <button>플러스마이너스</button> -->
+                            <span class="item_num">
+                                <span class="num">
+                                    <a href="javascript:return false" class="minus">-</a>
+                                    <span class="result">1</span>
+                                    <a href="javascript:return false" class="plus">+</a>
+                                </span>
+                            </span>
                         </div>
                         <div class="word4">
-                            <div><span style="font-weight: 600;">총 상품금액</span> <span style="color: #808080;">(수량)</span></div>
-                            <div><span style="font-weight: 600;">₩39,000원</span> <span style="color: #808080;">(1개)</span></div>
-                            
+                            <div><span style="font-weight: 600;">총 상품금액</span></div>
+                            <div><span class="totalcost" style="font-weight: 600;">₩ 0</span></div>
+                            <!-- <span style="color: #808080;">(수량)</span>
+                            <span class="result" style="color: #808080;"></span> -->
                         </div>
                         <div class="buy-button">
                             <button class="shopping-cart">장바구니 담기</button>
@@ -284,7 +291,7 @@
             </footer>        
         </main>
     </div>
-    <script src="../js/pill.js"></script>
+    <script src="{% static 'js/pill.js' %}"></script>
 </body> 
 
 </html>
