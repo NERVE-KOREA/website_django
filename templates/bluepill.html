@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nerve</title>
     <link rel="stylesheet" href="{% static 'css/pill.css' %}">
+    <script src="https://kit.fontawesome.com/58e1f810db.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -15,14 +16,14 @@
         <nav>
             <span class="nav-left">
                 <div class="logo-container"><a href="../"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
-                <div>
+                <div class="not-logo">
                     <span><a href="../product/brandstory">BRAND STORY</a></span>
                     <span><a href="../product/redpill">RED PILL</a></span>
                     <span><a href="../product/bluepill">BLUE PILL</a></span>
                 </div> 
             </span>
             <span class="nav-right">
-                <div style="display: flex;">
+                <div class="nav-right-content">
                     <div>
                         {% if user.is_authenticated %}
                         <span><a href="{% url 'logout' %}">LOGOUT</a></span>
@@ -40,27 +41,30 @@
                         <span><a href="{% url 'cart' %}">CART</a></span>
                         {% endif %}
                     </div>
-                </div>   
+                </div>
+                <div class="burger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </span>
         </nav>
         <main>
             <div class="main-container">
                 <div class="mainpill-section">
                     <div class="img-container">
-                        <img src="../img/purchase-main1.png" alt="">
+                        <img src="{% static 'img/main_man1.png' %}" alt="">
                         <div>
                             <img src="" alt="">
                         </div>
                     </div>
                     <div class="mainpill-words">
                         <div class="main-tag">
-                            <div>#종합비타민</div>
-                            <div>#미네랄</div>
+                            <div class="tag-blue">#마그네슘</div>
+                            <div class="tag-blue">#기능 유지</div>
                         </div>
                         <div class="word1">
                             <div style="font-size: 25px; font-weight: 800;">BLUE PILL</div>
-                            <div style="font-size: 15px; font-weight: 700;">ENERGY SUPPORT & BALANCED VITAMIN</div>
-                            <div style="font-size: 15px; color:#858585; font-weight: 600; margin: 1.5rem 0;">‘우리 몸이 자동차라면,<br>레드필은 기름이자 윤활유야'</div>
+                            <div style="font-size: 15px; font-weight: 700;">HEALTHY NERVE FUNCTION MAGNESIUM</div>
+                            <div style="font-size: 15px; color:#858585; font-weight: 600; margin: 1.5rem 0;">‘우리가 아끼는 자동차라면,<br>재정비 시간도 가져야지'</div>
                         </div>
                         <div class="word2">
                             <div style="font-weight: 600; margin-bottom: 1rem;">
@@ -73,7 +77,7 @@
                             </div>
                         </div>
                         <div class="word3">
-                            <span style="font-weight: 600;">[RED PILL] ENERGY SUPPORT & BALANCED VITAMIN</span>
+                            <span style="font-weight: 600;">[BLUE PILL] HEALTHY NERVE FUNCTION MAGNEISIUM</span>
                             <span class="item_num">
                                 <span class="num">
                                     <a href="javascript:return false" class="minus">-</a>
@@ -101,16 +105,17 @@
                         <a href="#info-detail">상세정보</a>
                         <a href="#info-deliver">배송/교환/환불 안내</a>
                         <a href="#info-qna">제품문의</a>
+                        <a href="#info-product">상품필수정보</a>
                     </div>
                     <div class="info-detail" id="info-detail">
                         <div class="sector" id="info-detail-first">
-                            <img class="info-detail-img" src="../img/purchase-main1.png" alt="">
+                            <img class="info-detail-img" src="{% static 'img/bluepill0.png' %}" alt="">
                             <div>
                                 <div class="pill-logo">
-                                    <img src="../img/logo_nerve_black.svg" alt="">
+                                    <img src="{% static 'img/logo_nerve_black.svg' %}" alt="">
                                 </div>
                                 <div class="pill-logo-sen">
-                                    미래를 위한 갓생 마켓
+                                    현미(現未)를 위한 갓생 마켓
                                 </div>
                                 <div class="main-sen">
                                     너브는 2030의 미래를 위한 행동들을 돕기 위해 탄생한 브랜드입니다. 지금 너브의 첫 여정이 시작됩니다.
@@ -118,38 +123,47 @@
                             </div>
                         </div>
                         <div class="sector" id="info-detail-check">
-                            <header class="sector-header">CHECK POINT</header>
-                            <div>□ 에너지 생성&활용을 위한 비타민 B군 고함유*</div>
-                            <div>□ 면역 증진을 위한 균형잡힌 비타민과 미네랄</div>
-                            <div>□ 목 넘김이 수월한 800mg의 알약 크기</div>
-                            <div>□ 섭취 습관이 어렵지 않도록 1일 2정</div>
+                            <header class="sector-header" style="font-size: 20px;">CHECK POINT</header>
+                            <div>□ 마그네슘 성분 효과1: 편두통 빈도/강도 완화</div>
+                            <div>□ 마그네슘 성분 효과2: 수면 효율, 수면 시간, 멜라토닌 증가</div>
+                            <div>□ 마그네슘 성분 효과3: 동맥혈관 내피 기능 개선</div>
+                            <div>□ 안심할 수 있는 프리미엄 원료</div>
+                            <div>□ 자기 전 편안한 목 넘김, 1일 1정, 350mg</div>
                             <div>□ 휴대하기 좋은 영양제 통 무게 50g</div>
-                            <div>*일일 성분 기준치 대비</div>
                         </div>
-                        <div class="sector">
-                            <div class="sector-header">MD's COMMENT</div>
+                        <div class="sector" style="border-bottom: none;">
+                            <div class="sector-header" style="font-size: 20px;">MD's COMMENT</div>
                             <div>해당 제품은 갓생을 사는 사회초년생을 위해 기획되었습니다. 이 제품은 여러분들이 많은 업무와 학업 및 타 활동들을 소화하는 데에 도움이 될 것입니다. 또한
                                 시각적으로 어디든 전시 하여도 어울리는 디자인입니다.</div>
-                            <div style="margin-top: 2rem; width: 100%"> <img src="../img/section3-1.png" style="width: 100%" alt=""> </div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill1.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill2.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill3.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill4.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill5.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill6.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill7.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill8.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill9.png' %}" style="width: 100%" alt=""></div>
+                            <div style="margin-top: 1rem; width: 100%"> <img src="{% static 'img/bluepill10.png' %}" style="width: 100%" alt=""></div>        
                         </div>
                     </div>
                     <div class="pill-nav-detail">
                         <a href="#info-detail">상세정보</a>
                         <a href="#info-deliver">배송/교환/환불 안내</a>
                         <a href="#info-qna">제품문의</a>
+                        <a href="#info-product">상품필수정보</a>
                     </div>
                     <div class="info-deliver" id="info-deliver">
                         <div class="sector">
-                            <header class="sector-header">PAYMENT INFO</header>
+                            <header class="sector-header" style="font-size: 20px;">PAYMENT INFO</header>
                             <div>고액결제의 경우 안전을 위해 카드사에서 확인전화를 드릴 수도 있습니다. 확인과정에서 도난 카드의 사용이나 타인 명의의 주문등 정상적인 주문이 아니라고 판단될
                                 경우 임의로 주문을 보류 또는 취소할 수 있습니다.</div>
-                            <div> <br> </div>
                             <div> <br> </div>
                             <div>무통장 입금 상품 구매 대금은 PC뱅킹, 인터넷뱅킹, 텔레뱅킹 혹은 가까운 은행에서 직접 입금하시면 됩니다. 주문시 입력한 입금자명과 실제입금자의 성명이
                                 반드시 일치하여야 하며, 익일 23:59:59 이내로 입금을 하셔야 하며 입금되지 않은 주문은 자동취소 됩니다.</div>
                         </div>
                         <div class="sector">
-                            <header class="sector-header">EXCHANGE INFO</header>
+                            <header class="sector-header" style="font-size: 20px;">EXCHANGE INFO</header>
                             <div style="font-weight: 600; margin-bottom: 1.5rem;">교환/환불 배송비 안내</div>
                             <div class="list-sen"> • 교환/반품 신청시 최초 발송비+환불 운송비 6,000원이 발생합니다. <br> &nbsp&nbsp&nbsp&nbsp(단,
                                 오배송/불량으로 인한 교환/환불 비용은 너브에서 부담합니다.)</div>
@@ -161,8 +175,8 @@
                             <div class="list-sen"> • 수형일 기준으로 7일 이내 교환/환불 요청을 하지 않았을 경우</div>
                             <div> • 주문 제작 상품/사전 안내된 세일 제품 등</div>
                         </div>
-                        <div class="sector">
-                            <header class="sector-header">DELIVERY INFO</header>
+                        <div class="sector" style="border-bottom: none;">
+                            <header class="sector-header" style="font-size: 20px;">DELIVERY INFO</header>
                             <div class="list-sen">배송 방법: 택배</div>
                             <div class="list-sen">배송 지역: 전국 지역</div>
                             <div class="list-sen">배송 비용: ￦3,000</div>
@@ -178,14 +192,53 @@
                         <a href="#info-detail">상세정보</a>
                         <a href="#info-deliver">배송/교환/환불 안내</a>
                         <a href="#info-qna">제품문의</a>
+                        <a href="#info-product">상품필수정보</a>
                     </div>
                     <div class="info-qna" id="info-qna">
                         <div class="sector">
-                            <header class="sector-header">Q&A</header>
+                            <header class="sector-header" style="font-size: 20px;">Q&A</header>
                             <div class="list-sen">안녕하세요, 사회초년생을 위한 건강 라이프스타일 브랜드 너브입니다.</div>
                             <div class="list-sen">항상 여러분들의 의견에 귀기울이고, 함께 건강한 문화를 만들어가는 너브가 되겠습니다.</div>
                             <div class="list-sen">너브 브랜드 혹은 제품에 대한 궁금증이나 요청할 것이 있으시다면 문의를 남겨주시면 됩니다.</div>
                             <div class="list-sen">문의하기는 로그인 후 우측 하단 ‘문의하기’를 클릭 하시면 이용 가능합니다 :)</div>
+                        </div>
+                    </div>
+
+                    <div class="pill-nav-detail">
+                        <a href="#info-detail">상세정보</a>
+                        <a href="#info-deliver">배송/교환/환불 안내</a>
+                        <a href="#info-qna">제품문의</a>
+                        <a href="#info-product">상품필수정보</a>
+                    </div>
+                    <div class="info-product" id="info-product">
+                        <div class="sector">
+                            <header class="sector-header" style="font-size: 20px;">PRODUCT INFO</header>
+                            <div class="list-sen">
+                                <div class="list-title">제품명</div>
+                                <div class="list-word">레드필</div>
+                                <div class="list-title">식품의 유형</div>
+                                <div class="list-word">건강기능식품</div>
+                                <div class="list-title">제조원</div>
+                                <div class="list-word">(주)상상바이오/서울 강남구 봉은사로 462</div>
+                                <div class="list-title">유통전문판매원</div>
+                                <div class="list-word">(주)너브코리아/서울특별시 성북구 안암로 145</div>
+                                <div class="list-title">제조연월일</div>
+                                <div class="list-word">상품 별도 표기</div>
+                                <div class="list-title">유통기한 또는 품질유지기한</div>
+                                <div class="list-word">상품 별도 표기</div>
+                                <div class="list-title">포장단위별 내용물의 용량(중량), 수량</div>
+                                <div class="list-word">21g(350mg x 60정)</div>
+                                <div class="list-title">원재료명 및 함량</div>
+                                <div class="list-word">코발라민, 비오틴, 판토텐베타카로틴, 비타민C 아스코르브산, 비타민D3, 비타민E, 비타민B1 티아민염산염, 비타민B2 리보플라빈, 비타민B6 피리독신, 비타민B12 메틸산, 아연, 엽산, 요오드화 칼륨, 마그네슘, 아연, 셀레늄, 망간, 크롬, 몰리브덴, 이노시톨, 토코페롤</div>
+                                <div class="list-title">영양/기능 정보</div>
+                                <div class="list-word">[비타민A] 피부와 점악을 형성하고 기능을 유지하는데 필요. [비타민D] 칼슘과 인이 흡수되고 이용되는데 필요. 뼈의 형성과 유지에 필요. [비타민E] 항산화 작용을 하여 유해산소로부터 세포를 보호하는 데 필요. [비타민B1] 탄수화물과 에너지 대사에 필요. [비타민B2] 체내 에너지 생성에 필요 [판토텐산] 지방, 탄수화물, 단백질 대사와 에너지 생성에 필요. [비타민B6] 단백질 및 아미노산 이용에 필요. [엽산] 세포와 혈액생성에 필요. [비타민B12] 정상적인 엽산 대사에 필요. [비오틴] 지방, 탄수화물, 단백질 대사와 에너지 생성에 필요. [비타민C] 결합조직 형성과 기능유지에 필요. [마그네슘] 에너지 이용에 필요. 신경과 근육 기능 유지에 필요. [아연] 정상적인 면역기능에 필요. [셀레늄] 유해산소로부터 세포를 보호하는데 필요. [요오드] 에너지 생성에 필요. [망간] 에너지 이용에 필요. [몰리브덴] 산화/환원 효소의 활성에 필요. [크롬] 체내 탄수화물, 지방, 단백질 대사에 관여.</div>
+                                <div class="list-title">유전자변형식품에 해당하는 경우의 표시</div>
+                                <div class="list-word">해당사항 없음</div>
+                                <div class="list-title">소비자안전을 위한 주의사항</div>
+                                <div class="list-word">과량 섭취 시 부작용이 있을 수 있으며 특정원료에 알레르기가 있거나 질병치료나 약물투여 중인 분들은 섭취 전 전문가와 상의하십시오.</div>
+                                <div class="list-title">수입식품에 해당하는 경우</div>
+                                <div class="list-word">해당사항 없음</div>  
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -196,17 +249,17 @@
                         </div>
                         <div class="right-box">
                             <div class="box-tag">
-                                <span style="font-size: 6px;">#종합비타민</span><span style="font-size: 6px;">#미네랄</span>
+                                <span class="box-blue" style="font-size: 6px;">#마그네슘</span><span class="box-blue" style="font-size: 6px;">#기능 유지</span>
                             </div>
                             <div class="sector-right">
-                                <header class="sector-header" style="margin-bottom:0.2rem">RED PILL</header>
-                                <header class="sector-header" style="font-size: 12px; margin-bottom: 0.5rem;">ENERGY SUPPORT & BALANCED VITAMIN</header>
-                                <div style="color: #404040; font-size: 12px; margin-left: 3px;">에너지 보충 & 종합비타민 영양제</div>
+                                <header class="sector-header" style="margin-bottom:0.2rem">BLUE PILL</header>
+                                <header class="sector-header" style="font-size: 12px; margin-bottom: 0.3rem;">HEALTHY NERVE FUNCTION MAGNEISIUM</header>
+                                <div style="color: #404040; font-size: 15px; margin-left: 3px;">신경기능유지</div>
                             </div>
                             <div class="sector-right">
                                 <header class="right-header">제품 설명</header>
-                                <div class="list-right">• 우리 몸이 자동차라면, 레드필은 기름이자 윤활유야</div>
-                                <div class="list-right">• 더 나은 미래를 향해 나아갈 수 있도록 돕는 종합비타민 영양제</div>
+                                <div class="list-right">• 우리가 아끼는 자동차라면, 재정비 시간도 가져야지</div>
+                                <div class="list-right">• 잠시 쉬는 시간을 가질 수 있도록 돕는 마그네슘 영양제</div>
                             </div>
                             <div class="sector-right">
                                 <header class="right-header">제품 구매 정보</header>

@@ -10,19 +10,20 @@
     <link rel="stylesheet" href="{% static 'css/myprofile.css' %}">
     <link rel="stylesheet" href="{% static 'css/brandstory.css' %}">
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <script src="https://kit.fontawesome.com/58e1f810db.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav>
         <span class="nav-left">
             <div class="logo-container"><a href="../"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
-            <div>
+            <div class="not-logo">
                 <span><a href="../product/brandstory">BRAND STORY</a></span>
                 <span><a href="../product/redpill">RED PILL</a></span>
                 <span><a href="../product/bluepill">BLUE PILL</a></span>
             </div> 
         </span>
         <span class="nav-right">
-            <div style="display: flex;">
+            <div class="nav-right-content">
                 <div>
                     {% if user.is_authenticated %}
                     <span><a href="{% url 'logout' %}">LOGOUT</a></span>
@@ -40,7 +41,10 @@
                     <span><a href="{% url 'cart' %}">CART</a></span>
                     {% endif %}
                 </div>
-            </div>   
+            </div>
+            <div class="burger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </span>
     </nav>
     <main>

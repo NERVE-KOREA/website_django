@@ -19,8 +19,8 @@
     --nerve-main-color:#DBF925;
     --nerve-main-color2: #65FC90;
     --subtitle-color:#8C8C8C;
-    --redpill-color: #F02233;
-    --bluepill-color: #0091DA;
+    --redpill-color: #FD7972;
+    --bluepill-color: #56C5EC;
 }
 
 
@@ -78,7 +78,7 @@ nav {
     align-items: center;
     font-weight: 600;
 }
-.nav-left, .nav-right  {
+.nav-left, .nav-right-content {
     display: flex;
     align-items: center;
 
@@ -108,6 +108,35 @@ nav.navbar--dark:hover {
     transition: all 1s;
 }
 
+@media ( min-width: 768px) {
+    .burger {
+        display: none;
+    }
+}
+
+@media ( max-width: 767px) {
+    nav {
+        position: inherit;
+        width: 100%;
+    }
+    .logo-container {
+        width: 5rem;
+        margin: 0 1rem;
+    }
+    .burger {
+        margin-right: 1rem;
+        font-size: 20px;
+    }
+    body {
+        width: 100%;
+    }
+    main {
+        width: 100%;
+    }
+   .nav-right-content, .not-logo {
+        display: none;
+    }
+}
 
 /*  */
 /* footer */
