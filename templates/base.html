@@ -34,9 +34,6 @@
                 </div>
                 <div>
                     {% if user.is_authenticated %}
-                    <!-- <span>내 프로필</span>
-                    <span><p>유저 정보: {{ user.username }}</p></span> -->
-                    <!-- 추가 프로필 정보 표시 -->
                     <span><a href="{% url 'myprofile' %}">MY PAGE</a></span>
                     <span><a href="{% url 'cart' %}">CART</a></span>
                     {% endif %}
@@ -45,6 +42,22 @@
             <div class="burger">
                 <i class="fa-solid fa-bars"></i>
             </div>
+            <ul class="nav-mobile">
+                <li class="nav-mobile-item"><a href="../product/brandstory">BRAND STORY</a></li>
+                <li class="nav-mobile-item"><a href="../product/redpill">RED PILL</a></li>
+                <li class="nav-mobile-item"><a href="../product/bluepill">BLUE PILL</a></li>
+                
+                {% if user.is_authenticated %}
+                <li class="nav-mobile-item"><a href="{% url 'logout' %}">LOGOUT</a></li>
+                {% else %}
+                <li class="nav-mobile-item"><a href="{% url 'login' %}">LOGIN</a></li>
+                <li class="nav-mobile-item"><a href="{% url 'signup' %}">JOIN US</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li class="nav-mobile-item"><a href="{% url 'myprofile' %}">MY PAGE</a></li>
+                <li class="nav-mobile-item"><a href="{% url 'cart' %}">CART</a></li>
+                {% endif %}
+            </ul>
         </span>
     </nav>
     <main>
@@ -72,5 +85,12 @@
     </footer>
     <script src="{% static 'js/index.js' %}"></script>
     <script src="https://kit.fontawesome.com/58e1f810db.js" crossorigin="anonymous"></script>
+    <script>
+        const navbarMenu = document.querySelector('.nav-mobile');
+        const navbarToggleBtn = document.querySelector('.burger');
+        navbarToggleBtn.addEventListener('click', () => {
+            navbarMenu.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
