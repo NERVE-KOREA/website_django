@@ -358,13 +358,13 @@ footer {
     color: white;
 }
 
-@media ( min-width: 768px) {
+@media (min-width: 768px) {
     .burger {
         display: none;
     }
 }
 
-@media ( max-width: 767px) {
+@media (max-width: 767px) {
     nav {
         position: inherit;
         width: 100%;

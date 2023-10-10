@@ -71,5 +71,3 @@ var slideIndex = 0;
         setTimeout(showSlides, 2500); // 2초마다 이미지가 체인지됩니다
     };
 
-
-
