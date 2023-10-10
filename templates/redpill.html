@@ -96,6 +96,14 @@
 
                         <div class="word3">
                             <span style="font-weight: 600;">[RED PILL] ENERGY SUPPORT & BALANCED VITAMIN</span>
+                            <form method="POST" action="../product/redpill">
+                                {% csrf_token %}
+                                <label for="redpill_quantity">수량:</label>
+                                <input type="number" id="redpill_quantity" name="redpill_quantity" value="1">
+                                <button type="button" id="plusBtn">+1</button>
+                                <button type="button" id="minusBtn">-1</button>
+                                <input type="submit" value="장바구니에 추가">
+                            </form>
                             <span class="item_num">
                                 <span class="num">
                                     <input style="background-color: white;" href="javascript:return false" type="button" class="minus" value="-">
@@ -329,12 +337,30 @@
     </div>
     <script src="{% static 'js/pill.js' %}"></script>
     <script>
+        // +1 버튼을 클릭할 때 수량 증가
+        document.getElementById('plusBtn').addEventListener('click', function () {
+            var redpill_quantity = document.getElementById('redpill_quantity');
+            redpill_quantity.value = parseInt(redpill_quantity.value) + 1;
+        });
+
+        // -1 버튼을 클릭할 때 수량 감소
+        document.getElementById('minusBtn').addEventListener('click', function () {
+            var redpill_quantity = document.getElementById('redpill_quantity');
+            var currentValue = parseInt(redpill_quantity.value);
+            if (currentValue > 1) {
+                redpill_quantity.value = currentValue - 1;
+            }
+        });
+    </script>
+    <script>
 
 const navbarMenu = document.querySelector('.nav-mobile');
 const navbarToggleBtn = document.querySelector('.burger');
 navbarToggleBtn.addEventListener('click', () => {
     navbarMenu.classList.toggle('open');
 });
+
+
     </script>
 </body> 
 

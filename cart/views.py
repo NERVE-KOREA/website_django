@@ -21,7 +21,8 @@ def product_add_to_cart_redpill(request):
     try:
         cart = Cart.objects.get(user_id=user_id)
         # 카트가 이미 있는 경우, 품목 개수를 +1 업데이트
-        Cart.redpill_quantity += 1
+        print(cart.cart_id)
+        cart['redpill_quantity'] += 1
         cart.save()
     except Cart.DoesNotExist:
         # 카트가 없는 경우, 새로운 카트 생성 후 품목 추가
