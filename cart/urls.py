@@ -4,4 +4,5 @@ from . import views
 urlpatterns = [
     # 다른 URL 패턴들...
     path('', views.cart_view, name='cart'),
+    path('order/', views.order_view, name = 'order')
 ]

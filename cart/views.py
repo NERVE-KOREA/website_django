@@ -10,6 +10,11 @@ def cart_view(request):
     return render(request, "cart.html")
 
 @login_required
+def order_view(request):
+    user = request.user
+    return render(request, "order.html")
+
+@login_required
 def product_add_to_cart_redpill(request):
     user = request.user
     user_id = user.user_id

@@ -3,10 +3,10 @@ from django.shortcuts import render
 from cart.models import Cart
 
 def redpill_view(request):
-    user = request.user
-    user_id = user.user_id
     if request.method == 'POST':
         redpill_quantity = request.POST['redpill_quantity']
+        user = request.user
+        user_id = user.user_id
         try:
             cart = Cart.objects.filter(user_id = user_id)
         except Cart.DoesNotExist:
