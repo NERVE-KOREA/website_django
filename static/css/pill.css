@@ -101,7 +101,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30%;
+    width: 33%;
     border: 1px solid black;
     padding: 1.5rem 2rem;
     background-color: white;
@@ -345,9 +345,6 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 0 3rem;
-}
-.footer-text div {
-    margin: 0.4rem;
 }
 .footer-text div span {
     margin: 0.3rem;

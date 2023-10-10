@@ -98,9 +98,9 @@
                             <span style="font-weight: 600;">[RED PILL] ENERGY SUPPORT & BALANCED VITAMIN</span>
                             <span class="item_num">
                                 <span class="num">
-                                    <input href="javascript:return false" type="button" class="minus" value="-">
+                                    <input style="background-color: white;" href="javascript:return false" type="button" class="minus" value="-">
                                     <span class="result">1</span>
-                                    <input href="javascript:return false" type="button" class="plus" value="+">
+                                    <input style="background-color: white;" href="javascript:return false" type="button" class="plus" value="+">
 
                                     <!-- <input href="javascript:return false" type="text" class="minus" placeholder="-">
                                     <span class="result">1</span>
@@ -115,8 +115,8 @@
                             <span class="result" style="color: #808080;"></span> -->
                         </div>
                         <div class="buy-button">
-                            <a class="shopping-cart">장바구니 담기</a>
-                            <button class="direct-buy">바로 구매하기</button>
+                            <button class="shopping-cart" onclick="btnAlert('재고가 없습니다.')">장바구니 담기</button>
+                            <button class="direct-buy" onclick="btnAlert('재고가 없습니다.')">바로 구매하기</button>
                         </div>
                     </div>
                 </div>
@@ -296,8 +296,8 @@
                                 <div class="list-right">• 제한 수량: 1,000개</div>
                             </div>
                             <div class="buy-button">
-                                <button class="shopping-cart" style="padding: 1rem 1rem;">장바구니 담기</button>
-                                <button class="direct-buy"  style="padding: 1rem 1rem;">바로 구매하기</button>
+                                <button class="shopping-cart" style="padding: 1rem 1rem;" onclick="btnAlert('재고가 없습니다.')">장바구니 담기</button>
+                                <button class="direct-buy"  style="padding: 1rem 1rem;" onclick="btnAlert('재고가 없습니다.')">바로 구매하기</button>
                             </div>
 
                         </div>
@@ -307,22 +307,24 @@
             <footer>
                 <div class="footer-text">
                     <div>
-                        <div>
-                            <span><a href="">Instagram</a></span>
-                            <span><a href="">Contact</a></span>
+                        <div style="margin-bottom: 0.5rem;">nervekorea.com all rights reserved.</div>
+                        <div style="color:#ADADAD">
+                            <div style="margin-bottom: 0.3rem;">(주)너브코리아  서울특별시 성북구 안암동5가 50-1, 파이빌 303호</div>
+                            <div>대표이사: 이은석</div>
                         </div>
-                        <div>Nervekorea@gmail.com</div>
                     </div>
                     <div>
-                        <div>Nerve.</div>
-                        <div>@ 2023</div>
+                        <div>
+                            <img style="color: white;" src="{% static 'img/logo_nerve_white.svg' %}" alt="">
+                        </div>
+                        <div>
+                            <span><a href="https://www.instagram.com/nervekorea/">Instagram</a></span>
+                            <span><a href="https://www.instagram.com/nervekorea/">Contact</a></span>
+                        </div>
+        
                     </div>
-                    <div>
-                        <div>145, Anam-ro, Seongbuk-gu, Seoul,</div>
-                        <div>Republic of Korea</div>
-                    </div>
-                </div> 
-            </footer>        
+                </div>
+            </footer>     
         </main>
     </div>
     <script src="{% static 'js/pill.js' %}"></script>

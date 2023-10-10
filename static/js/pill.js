@@ -54,3 +54,8 @@ minus.addEventListener("click", () => {
         totalcost.textContent = "₩" + 0
     }
 })
+
+
+function btnAlert(sample) {
+    alert(sample);
+}
