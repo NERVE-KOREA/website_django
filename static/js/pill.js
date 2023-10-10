@@ -36,7 +36,7 @@ let plus = document.querySelector(".plus");
 let minus = document.querySelector(".minus");
 let result = document.querySelector(".result");
 let totalcost = document.querySelector(".totalcost");
-let i = 1;
+let i = 0;
 plus.addEventListener("click", () => {
     i++
     result.textContent = i;
