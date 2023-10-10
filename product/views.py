@@ -24,5 +24,3 @@ def bluepill_view(request):
 def brandstory_view(request):
     return render(request, "brandstory.html") 
 
-
-

@@ -25,9 +25,9 @@ def product_add_to_cart_redpill(request):
     return redirect('cart.html')  # 장바구니 페이지로 리다이렉션
         
 
-# def add_cart(request,product_id):
-#     product = Product.objects.get(id=product_id)
-#     cart_item = Orders_Detail.objects.get()
+# def add_cart(request,cart_id):
+#     product =  Cart.objects.get(product_id=product_id(request))
+#     cart_item = Cart_Detail.objects.get()
 
 
 

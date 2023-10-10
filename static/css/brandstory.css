@@ -34,3 +34,15 @@ body {
 .bs-sen3 {
     font-size: 13px;
 }
+
+@media (max-width: 767px) {
+    .bs-main-img {
+        width: 100%;
+    }
+    .bs-sen {
+        width: 100%;
+    }
+    .bs-sen div {
+        margin: 1rem 2rem;
+    }
+}
