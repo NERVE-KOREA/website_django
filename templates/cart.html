@@ -8,19 +8,40 @@
             <span style="color: black">01 장바구니</span><span> > </span><span>02 주문서 작성</span><span> > </span><span>03 주문완료</span>
         </div>  
         <div class="cart-items">
-            <div class="del-btns">
+            <!-- <div class="del-btns">
                 <span><a class="del-btn" href="">전체삭제</a></span>
                 <span><a class="del-btn" href="">선택삭제</a></span>
-            </div>
-            <div class="item-header">
-                <div>주문상품</div>
-                <div>수량</div>
-                <div>주문금액</div>
-                <div>배송비</div>
-            </div>
-            <div class="cart-item">
-                담은 상품이 없습니다.
-            </div>
+            </div> -->
+            <table class="item-table">
+                <tr class="item-header">
+                    <td>주문상품</td>
+                    <td>수량</td>
+                    <td>주문금액</td>
+                </tr>
+                <tr class="cart-item-cart">
+                    <td class="cart-item1">
+                        <div style="width: 15rem;"><img style="width: 100%;" src="{% static 'img/redpill_img.png' %}" alt=""></div>
+                        <div>
+                            <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">레드필 RED PILL</div>
+                            <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
+                        </div>
+                    </td>
+                    <td style="display: flex; justify-content: space-around; padding-right: 1rem; border-right: 1px solid #ADADAD">여기에 수량 버튼</td>
+                    <td style="display: flex; justify-content: space-around;">0원</td>
+                </tr>
+                <tr class="cart-item-cart" style="margin-bottom: 4rem; border-bottom: 1px solid #ADADAD;">
+                    <td class="cart-item1">
+                        <div style="width: 15rem;"><img style="width: 100%;" src="{% static 'img/bluepill_img.png' %}" alt=""></div>
+                        <div>
+                            <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">블루필 BLUE PILL</div>
+                            <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
+                        </div>
+                    </td>
+                    <td style="display: flex; justify-content: space-around; padding-right: 1rem; border-right: 1px solid #ADADAD">여기에 수량 버튼</td>
+                    <td style="display: flex; justify-content: space-around;">0원</td>
+                </tr>
+            </table>
+        </div>
             <div class="cart-money">
                 <div class="cart-money-header">총 주문상품 0개</div>
                 <div class="money">
@@ -30,7 +51,7 @@
                     </div>
                     <div>+</div>
                     <div>
-                        <div class="num">0원</div> 
+                        <div class="num">3,000원</div> 
                         <div class="sen">배송비</div>
                     </div> 
                     <div>=</div>
@@ -41,8 +62,8 @@
                 </div>
             </div>
             <div class="nextbtn">
-                <div><a style="color:black" href="" onclick="btnAlert('담긴 상품이 없습니다.')">선택상품주문</a></div>
-                <div><a style="color: white; background-color: black;" href="" onclick="btnAlert('담긴 상품이 없습니다.')">전체상품주문</a></div>
+                <!-- <div><a style="color:black" href="" onclick="btnAlert('담긴 상품이 없습니다.')">선택상품주문</a></div> -->
+                <div><a style="color: white; background-color: black;" href="{% url 'order' %}">전체상품주문</a></div>
             </div>
             
         </div>

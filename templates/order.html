@@ -41,16 +41,59 @@
         </div>
         <div class="cart-item">
             <div class="list-title">주문상품</div>
-            <div class="list-table">
-                {$ for }
-                <div>주문상품</div>
-                <div>수량</div>
-                <div>주문금</div>
-                <div>배송비</div>
+            <div class="cart-items">
+                <!-- <div class="del-btns">
+                    <span><a class="del-btn" href="">전체삭제</a></span>
+                    <span><a class="del-btn" href="">선택삭제</a></span>
+                </div> -->
+                <table class="item-table">
+                    <tr class="item-header">
+                        <td>주문상품</td>
+                        <td>수량</td>
+                        <td>주문금액</td>
+                    </tr>
+                    <tr class="cart-item-cart">
+                        <td class="cart-item1">
+                            <div style="width: 7rem;"><img style="width: 100%;" src="{% static 'img/redpill_img.png' %}" alt=""></div>
+                            <div>
+                                <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">레드필 RED PILL</div>
+                                <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
+                            </div>
+                        </td>
+                        <td style="display: flex; justify-content: space-around; padding-right: 1rem; border-right: 1px solid #ADADAD">여기에 수량</td>
+                        <td style="display: flex; justify-content: space-around;">0원</td>
+                    </tr>
+                    <tr class="cart-item-cart" style="margin-bottom: 4rem; border-bottom: 1px solid #ADADAD;">
+                        <td class="cart-item1">
+                            <div style="width: 7rem;"><img style="width: 100%;" src="{% static 'img/bluepill_img.png' %}" alt=""></div>
+                            <div>
+                                <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">블루필 BLUE PILL</div>
+                                <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
+                            </div>
+                        </td>
+                        <td style="display: flex; justify-content: space-around; padding-right: 1rem; border-right: 1px solid #ADADAD">여기에 수량</td>
+                        <td style="display: flex; justify-content: space-around;">0원</td>
+                    </tr>
+                </table>
             </div>
-            <div>
-                <div>총 주문상품 n개</div>
-                <div>.</div>
+            <div class="cart-money">
+                <div class="cart-money-header">총 주문상품 0개</div>
+                <div class="money">
+                    <div>
+                        <div class="num">0원</div> 
+                        <div class="sen">상품금액</div>
+                    </div>
+                    <div>+</div>
+                    <div>
+                        <div class="num">3,000원</div> 
+                        <div class="sen">배송비</div>
+                    </div> 
+                    <div>=</div>
+                    <div>
+                        <div class="num">0원</div> 
+                        <div class="sen">총 주문금액</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="pay">
@@ -67,7 +110,7 @@
                         <input class="inputs_item" style="border-bottom: 1px solid #ADADAD;" type="button" value="페이코">
                 </div>
         </div>
-        <div><button class="cart-button" type="submit">결제하기</button></div>
+        <div><button class="cart-button" type="submit" onclick="btnAlert('재고가 없습니다.')">결제하기</button></div>
     </div>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -183,6 +226,8 @@ items.forEach((item)=>{
 })
 </script>
 <script>
-
+    function btnAlert(sample) {
+        alert(sample);
+    }   
 </script>
 {% endblock %}
