@@ -2,187 +2,57 @@
 
 {% block content %}
 {% load static %}
-    <div class="cart-container" style="margin-top: 5rem;">
-        <div class="cart-title">CART</div>
-        <div class="cart-subtitle">
-            <span>01 장바구니</span><span> > </span><span style="color: black">02 주문서 작성</span><span> > </span><span>03 주문완료</span>
+<div class="cart-container" style="margin-top: 5rem;">
+    <div class="cart-title">CART</div>
+    <div class="cart-subtitle">
+        <span>01 장바구니</span><span> > </span><span style="color: black">02 주문서 작성</span><span> > </span><span>03 주문완료</span>
+    </div>
+    <div class="cart-deliver">
+        <form method="POST" id="cart-form">
+            {% csrf_token %}
+            <div class="list-title">배송지</div>
+            <ul class="cart-submit">
+                <li>
+                    <label for="id_user_id">받는 사람</label>
+                    <input style="width: 7rem;" type="text" name="user_name" maxlength="40" required="" id="id_user_id">
+                </li>
+                <li>
+                    <label for="id_user_name">주소</label>
+                    <span>
+                        <input type="text" id="sample4_postcode" placeholder="우편번호">
+                        <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 검색"><br><br>
+                        <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
+                        <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
+                        <span id="guide" style="color:#999;display:none"></span>
+                        <input type="text" id="sample4_detailAddress" placeholder="상세주소"><br><br>
+                        <input type="text" id="sample4_extraAddress" placeholder="참고항목">
+                    </span>
+                </li>
+                <li>
+                    <label for="id_phone_number">휴대전화</label>
+                    <input type="text" name="phone_number" maxlength="13" required="" id="id_phone_number">
+                </li>
+                <li>
+                    <label for="id_user_message">메세지 입력</label>
+                    <input type="text" name="" maxlength="10" required="" id="id_user_message">
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="cart-item">
+        <div class="list-title">주문상품</div>
+        <div class="list-table">
+            <div>주문상품</div>
+            <div>수량</div>
+            <div>주문금액</div>
+            <div>배송비</div>
         </div>
-        <div class="cart-deliver">
-            <form method="POST" id="cart-form">
-                {% csrf_token %}
-                <div class="list-title">배송지</div>
-                <ul class="cart-submit">
-                    <li>
-                        <label for="id_user_id">받는 사람</label>
-                        <input style="width: 7rem;" type="text" name="user_name" maxlength="40" required="" id="id_user_id">
-                    </li>
-                    <li>
-                        <label for="id_user_name">주소</label>
-                        <span>
-                            <input type="text" id="sample4_postcode" placeholder="우편번호">
-                            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 검색"><br><br>
-                            <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
-                            <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
-                            <span id="guide" style="color:#999;display:none"></span>
-                            <input type="text" id="sample4_detailAddress" placeholder="상세주소"><br><br>
-                            <input type="text" id="sample4_extraAddress" placeholder="참고항목">
-                        </span>
-                    </li>
-                    <li>
-                        <label for="id_phone_number">휴대전화</label>
-                        <input type="text" name="phone_number" maxlength="13" required="" id="id_phone_number">
-                    </li>
-                    <li>
-                        <label for="id_user_message">메세지 입력</label>
-                        <input type="text" name="" maxlength="10" required="" id="id_user_message">
-                    </li>
-                </ul>
-            </form>
+        <div>
+            <div>총 주문상품 n개</div>
+            <div>.</div>
         </div>
-        <div class="cart-item">
-            <div class="list-title">주문상품</div>
-            <div class="list-table">
-                {$ for }
-                <div>주문상품</div>
-                <div>수량</div>
-                <div>주문금</div>
-                <div>배송비</div>
-            </div>
-            <div>
-                <div>총 주문상품 n개</div>
-                <div>.</div>
-            </div>
-        </div>
-        <div class="pay">
-            <div class="list-title">결제수단</div>
-                <div class="list-subtitle">결제수단 선택</div>
-                <div class="inputs">
-                        <input class="inputs_item" type="button" value="신용/체크카드">
-                        <input class="inputs_item" type="button" value="휴대폰 결제">
-                        <input class="inputs_item" type="button" value="무통장입금">
-                        <input class="inputs_item" type="button" value="무통장입금 (가상계좌)">
-                        <input class="inputs_item" type="button" value="카카오페이">
-                        <input class="inputs_item" type="button" value="토스페이">
-                        <input class="inputs_item" type="button" value="계좌이체">
-                        <input class="inputs_item" style="border-bottom: 1px solid #ADADAD;" type="button" value="페이코">
-                </div>
-        </div>
-        <div><button class="cart-button" type="submit">결제하기</button></div>
     </div>
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-    function sample4_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var roadAddr = data.roadAddress; // 도로명 주소 변수
-                var extraRoadAddr = ''; // 참고 항목 변수
-
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
-                }
-                // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample4_postcode').value = data.zonecode;  
-                document.getElementById("sample4_roadAddress").value = roadAddr;
-                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
-                
-                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                if(roadAddr !== ''){
-                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-                } else {
-                    document.getElementById("sample4_extraAddress").value = '';
-                }
-
-                var guideTextBox = document.getElementById("guide");
-                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-                if(data.autoRoadAddress) {
-                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                    guideTextBox.style.display = 'block';
-
-                } else if(data.autoJibunAddress) {
-                    var expJibunAddr = data.autoJibunAddress;
-                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                    guideTextBox.style.display = 'block';
-                } else {
-                    guideTextBox.innerHTML = '';
-                    guideTextBox.style.display = 'none';
-                }
-            }
-        }).open();
-    }
-</script>
-<script>
-    var autoHypenPhone = function(str){
-    str = str.replace(/[^0-9]/g, '');
-    var tmp = '';
-    if( str.length < 4){
-        return str;
-    }else if(str.length < 7){
-        tmp += str.substr(0, 3);
-        tmp += '-';
-        tmp += str.substr(3);
-        return tmp;
-    }else if(str.length < 11){
-        tmp += str.substr(0, 3);
-        tmp += '-';
-        tmp += str.substr(3, 3);
-        tmp += '-';
-        tmp += str.substr(6);
-        return tmp;
-    }else{              
-        tmp += str.substr(0, 3);
-        tmp += '-';
-        tmp += str.substr(3, 4);
-        tmp += '-';
-        tmp += str.substr(7);
-        return tmp;
-    }
-
-    return str;
-}
-
-var phoneNum = document.getElementById('id_phone_number');
-
-phoneNum.onkeyup = function(){
-  console.log(this.value);
-  this.value = autoHypenPhone( this.value ) ;  
-}
-</script>
-<script>
-    //선택지를 모두 가져온다
-const items = document.querySelectorAll(".inputs_item");
-//배열로 저장되기 때문에 forEach로 하나씩 이벤트를 등록해준다.
-items.forEach((item)=>{
-    item.addEventListener('click',()=>{
-        items.forEach((e)=>{
-          //하나만 선택되도록 기존의 효과를 지워준다.
-            e.classList.remove('active');
-        })
-      // 선택한 그 아이만 효과를 추가해준다.
-        item.classList.add('active');
-      // 선택을 하면 다음으로 넘어갈 수 있는 버튼이 활성화 되도록 한다.
-        document.getElementById('next').style.display='block';
-    })
-})
-</script>
-<script>
-
-</script>
+    <div><button class="cart-button" type="submit">결제하기</button></div>
+</div>
 {% endblock %}
