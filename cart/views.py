@@ -31,7 +31,11 @@ def cart_view(request):
 @login_required
 def order_view(request):
     user = request.user
-    return render(request, "order.html")
+    user_id = user.user_id
+    cart = Cart.objects.get(user_id = user_id)
+    redpill_quantity = cart.redpill_quantity
+    bluepill_quantity = cart.bluepill_quantity
+    return render(request, "order.html", {'redpill_quantity': redpill_quantity, 'bluepill_quantity': bluepill_quantity})
 
 
 
