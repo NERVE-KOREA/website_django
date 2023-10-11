@@ -75,17 +75,27 @@ main {
     padding: 2rem 0;
     display: flex;
 }
+.num {
+    display: flex;
+}
 .item_num {
     margin-left: 3rem;
 }
 .plus, .minus {
-    text-decoration: none;
     color: black;
-    font-size: 23px;
+    font-size: 1rem;
     border: 1px solid black;
     padding: 0.1rem 0.4rem;
-    margin: 0 0.3rem ;
-    
+    margin: 0 0.3rem;
+    background-color: white;
+}
+.plus:hover, .minus:hover {
+    transition: 0.1s;
+    background-color: #d2d2d2;
+}
+#redpill_quantity, #bluepill_quantity {
+    width: 1.5rem;
+    text-align: center;
 }
 .word4 {
     padding: 2rem 0;

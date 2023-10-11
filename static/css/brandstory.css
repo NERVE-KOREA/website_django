@@ -41,8 +41,14 @@ body {
     }
     .bs-sen {
         width: 100%;
+        line-height: 2;
     }
-    .bs-sen div {
-        margin: 1rem 2rem;
+    .bs-sen1, .bs-sen2 {
+        margin: 2rem 2rem;
+    }
+    .bs-sen3 {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 6rem;
     }
 }

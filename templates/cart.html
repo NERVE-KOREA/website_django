@@ -16,43 +16,40 @@
             {% csrf_token %}
             <table class="item-table">
                 <tr class="item-header">
-                    <td>주문상품</td>
-                    <td>수량</td>
-                    <td>주문금액</td>
+                    <td style="margin-left: 6rem;">주문상품</td>
+                    <td style="margin-left: 4rem;">수량</td>
+                    <td style="margin-left: 1rem;">주문금액</td>
                 </tr>
                 <tr class="cart-item-cart">
                     <td class="cart-item1">
-                        <div style="width: 15rem;"><img style="width: 100%;" src="{% static 'img/redpill_img.png' %}" alt=""></div>
-                        <div>
+                        <div style="width: 10rem;"><img style="width: 100%;" src="{% static 'img/redpill_img.png' %}" alt=""></div>
+                        <div style="margin-left: 1rem; width: 10rem; ">
                             <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">레드필 RED PILL</div>
                             <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
                         </div>
                     </td>
-                    <td style="display: flex; justify-content: space-around; padding-right: 1rem; border-right: 1px solid #ADADAD">
-
-                            <label for="redpill_quantity">수량:</label>
-                            <input type="number" id="redpill_quantity" name="redpill_quantity" value="{{ redpill_quantity }}">
-                            <button type="button" id="plusBtn_red" >+1</button>
-                            <button type="button" id="minusBtn_red">-1</button>
-                         
+                    <td style="display: flex; justify-content: center; align-items: center; padding-right: 1rem; border-right: 1px solid #ADADAD">
+                        <button type="button" id="minusBtn_red">-1</button>
+                        <input type="number" readonly id="redpill_quantity" name="redpill_quantity" value="{{ redpill_quantity }}" style="width: 2.5rem; margin-bottom: 0; padding: 0.1rem 0; text-align: center;">
+                        <button type="button" id="plusBtn_red">+1</button>
+                        
                     </td>
-                    <td style="display: flex; justify-content: space-around;">0원</td>
+                    <td class="redtotalcost" style="display: flex; justify-content: space-around;">0원</td>
                 </tr>
                 <tr class="cart-item-cart" style="margin-bottom: 4rem; border-bottom: 1px solid #ADADAD;">
                     <td class="cart-item1">
-                        <div style="width: 15rem;"><img style="width: 100%;" src="{% static 'img/bluepill_img.png' %}" alt=""></div>
-                        <div>
+                        <div style="width: 10rem;"><img style="width: 100%;" src="{% static 'img/bluepill_img.png' %}" alt=""></div>
+                        <div style="width: 10rem; margin-left: 1rem;">
                             <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">블루필 BLUE PILL</div>
                             <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
                         </div>
                     </td>
-                    <td style="display: flex; justify-content: space-around; padding-right: 1rem; border-right: 1px solid #ADADAD">
-                        <label for="bluepill_quantity">수량:</label>
-                        <input type="number" id="bluepill_quantity" name="bluepill_quantity" value="{{ bluepill_quantity }}">
-                        <button type="button" id="plusBtn_blue">+1</button>
+                    <td style="display: flex; justify-content: center; align-items: center; padding-right: 1rem; border-right: 1px solid #ADADAD">
                         <button type="button" id="minusBtn_blue">-1</button>
+                        <input type="number" readonly id="bluepill_quantity" name="bluepill_quantity" value="{{ bluepill_quantity }}" style="width: 2.5rem; margin-bottom: 0; padding: 0.1rem 0; text-align: center;">
+                        <button type="button" id="plusBtn_blue">+1</button>
                     </td>
-                    <td style="display: flex; justify-content: space-around;">0원</td>
+                    <td class="bluetotalcost" style="display: flex; justify-content: space-around;">0원</td>
                 </tr>
             </table>
             </div>
@@ -94,7 +91,7 @@
         document.getElementById('minusBtn_red').addEventListener('click', function () {
             var redpill_quantity = document.getElementById('redpill_quantity');
             var currentValue = parseInt(redpill_quantity.value);
-            if (currentValue > 1) {
+            if (currentValue >= 1) {
                 redpill_quantity.value = currentValue - 1;
             }
         });
@@ -110,7 +107,7 @@
         document.getElementById('minusBtn_blue').addEventListener('click', function () {
             var bluepill_quantity = document.getElementById('bluepill_quantity');
             var currentValue = parseInt(bluepill_quantity.value);
-            if (currentValue > 1) {
+            if (currentValue >= 1) {
                 bluepill_quantity.value = currentValue - 1;
             }
         });
@@ -122,5 +119,59 @@
         alert(sample);
     }
 </script>
+<script>
+    // redpill +,- 가격 적용
+let redplus = document.querySelector("#plusBtn_red");
+let redminus = document.querySelector("#minusBtn_red");
+let redresult = document.querySelector("#redpill_quantity");
+let redtotalcost = document.querySelector(".redtotalcost");
+let i = parseInt(redresult.value);
+let redtotalcostNum = i*39000;
+redtotalcost.textContent = "₩" +redtotalcostNum.toLocaleString();
 
+redplus.addEventListener("click", () => {
+    i++
+    redresult.textContent = i;
+    let redtotalcostNum = i*39000;
+    redtotalcost.textContent = "₩" + redtotalcostNum.toLocaleString();
+
+});
+redminus.addEventListener("click", () => {
+    if(i > 0 ) {
+        i--
+        redresult.textContent = i;
+        let redtotalcostNum = i*39000;
+        redtotalcost.textContent = "₩" + redtotalcostNum.toLocaleString();
+    }else {
+        redtotalcost.textContent = "₩" + 0
+    }
+})
+
+// bluepill +,- 가격 적용
+let blueplus = document.querySelector("#plusBtn_blue");
+let blueminus = document.querySelector("#minusBtn_blue");
+let blueresult = document.querySelector("#bluepill_quantity");
+let bluetotalcost = document.querySelector(".bluetotalcost");
+let e = parseInt(blueresult.value);
+let bluetotalcostNum = e*39000;
+bluetotalcost.textContent = "₩" +bluetotalcostNum.toLocaleString();
+
+blueplus.addEventListener("click", () => {
+    e++
+    blueresult.textContent = e;
+    let bluetotalcostNum = e*39000;
+    bluetotalcost.textContent = "₩" + bluetotalcostNum.toLocaleString();
+
+});
+blueminus.addEventListener("click", () => {
+    if(e > 0 ) {
+        e--
+        blueresult.textContent = e;
+        let bluetotalcostNum = e*39000;
+        bluetotalcost.textContent = "₩" + bluetotalcostNum.toLocaleString();
+    }else {
+        bluetotalcost.textContent = "₩" + 0
+    }
+})
+</script>
 {% endblock %}
