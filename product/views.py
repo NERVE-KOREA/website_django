@@ -9,7 +9,6 @@ def redpill_view(request):
         user_id = user.user_id
         try:
             cart = Cart.objects.get(user_id = user_id)
-            print(cart)
             cart.redpill_quantity += int(redpill_quantity)
             cart.save()
         except Cart.DoesNotExist:
@@ -18,6 +17,17 @@ def redpill_view(request):
     return render(request, "redpill.html") 
 
 def bluepill_view(request):
+    if request.method == 'POST':
+        bluepill_quantity = request.POST.get('bluepill_quantity')
+        user = request.user
+        user_id = user.user_id
+        try:
+            cart = Cart.objects.get(user_id = user_id)
+            cart.bluepill_quantity += int(bluepill_quantity)
+            cart.save()
+        except Cart.DoesNotExist:
+            new_cart = Cart.objects.create(user_id = user_id, redpill_quantity = 0, bluepill_quantity = bluepill_quantity)
+            new_cart.save()
     return render(request, "bluepill.html") 
 
 def brandstory_view(request):

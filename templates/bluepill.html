@@ -91,6 +91,14 @@
                         </div>
                         <div class="word3">
                             <span style="font-weight: 600;">[BLUE PILL] HEALTHY NERVE FUNCTION MAGNEISIUM</span>
+                            <form method="POST" action="../product/bluepill">
+                                {% csrf_token %}
+                                <label for="bluepill_quantity">수량:</label>
+                                <input type="number" id="bluepill_quantity" name="bluepill_quantity" value="1">
+                                <button type="button" id="plusBtn">+1</button>
+                                <button type="button" id="minusBtn">-1</button>
+                                <input type="submit" value="장바구니에 추가">
+                            </form>
                             <span class="item_num">
                                 <span class="num">
                                     <a href="javascript:return false" class="minus">-</a>
@@ -319,8 +327,24 @@
         </main>
     </div>
     <script src="{% static 'js/pill.js' %}"></script>
+    
     <script>
+        // +1 버튼을 클릭할 때 수량 증가
+        document.getElementById('plusBtn').addEventListener('click', function () {
+            var bluepill_quantity = document.getElementById('bluepill_quantity');
+            bluepill_quantity.value = parseInt(bluepill_quantity.value) + 1;
+        });
 
+        // -1 버튼을 클릭할 때 수량 감소
+        document.getElementById('minusBtn').addEventListener('click', function () {
+            var bluepill_quantity = document.getElementById('bluepill_quantity');
+            var currentValue = parseInt(bluepill_quantity.value);
+            if (currentValue > 1) {
+                bluepill_quantity.value = currentValue - 1;
+            }
+        });
+    </script>
+    <script>
 const navbarMenu = document.querySelector('.nav-mobile');
 const navbarToggleBtn = document.querySelector('.burger');
 navbarToggleBtn.addEventListener('click', () => {
