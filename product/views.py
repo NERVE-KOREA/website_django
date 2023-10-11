@@ -10,7 +10,7 @@ def redpill_view(request):
             return redirect('redpill')
         if action == '구매하기':
             product_add_to_cart_red(request)
-            return render(request, "cart.html")
+            return redirect('/cart/')
     return render(request, "redpill.html") 
 
 def bluepill_view(request):
@@ -21,7 +21,7 @@ def bluepill_view(request):
             return redirect('bluepill')
         if action == '구매하기':
             product_add_to_cart_blue(request)
-            return render(request, "cart.html")
+            return redirect('/cart/')
     return render(request, "bluepill.html")
 
 def brandstory_view(request):
