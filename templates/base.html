@@ -15,11 +15,11 @@
 <body>
     <nav>
         <span class="nav-left">
-            <div class="logo-container"><a href="../"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
+            <div class="logo-container"><a href="/"><img src="{% static 'img/logo_nerve_black.svg' %}" alt=""></a></div>
             <div class="not-logo">
-                <span><a href="../product/brandstory">BRAND STORY</a></span>
-                <span><a href="../product/redpill">RED PILL</a></span>
-                <span><a href="../product/bluepill">BLUE PILL</a></span>
+                <span><a href="{% url 'brandstory' %}">BRAND STORY</a></span>
+                <span><a href="{% url 'redpill' %}">RED PILL</a></span>
+                <span><a href="{% url 'bluepill' %}">BLUE PILL</a></span>
             </div> 
         </span>
         <span class="nav-right">
@@ -43,9 +43,9 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
             <ul class="nav-mobile">
-                <li class="nav-mobile-item"><a href="../product/brandstory">BRAND STORY</a></li>
-                <li class="nav-mobile-item"><a href="../product/redpill">RED PILL</a></li>
-                <li class="nav-mobile-item"><a href="../product/bluepill">BLUE PILL</a></li>
+                <li class="nav-mobile-item"><a href="{% url 'brandstory' %}">BRAND STORY</a></li>
+                <li class="nav-mobile-item"><a href="{% url 'redpill' %}">RED PILL</a></li>
+                <li class="nav-mobile-item"><a href="{% url 'bluepill' %}">BLUE PILL</a></li>
                 
                 {% if user.is_authenticated %}
                 <li class="nav-mobile-item"><a href="{% url 'logout' %}">LOGOUT</a></li>
