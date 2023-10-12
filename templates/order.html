@@ -55,24 +55,24 @@
                     <tr class="cart-item-cart">
                         <td class="cart-item1">
                             <div style="width: 7rem;"><img style="width: 100%;" src="{% static 'img/redpill_img.png' %}" alt=""></div>
-                            <div>
-                                <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">레드필 RED PILL</div>
+                            <div style="margin-left: 0.7rem;">
+                                <div style="font-size: 1.1rem; font-weight: 600; margin-top: 1rem;">레드필 RED PILL</div>
                                 <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
                             </div>
                         </td>
-                        <td style="display: flex; justify-content: space-around; padding-right: 1rem; border-right: 1px solid #ADADAD">{{ redpill_quantity }}</td>
-                        <td style="display: flex; justify-content: space-around;">0원</td>
+                        <td style="display: flex; justify-content: center; align-items: center; padding-right: 1rem; border-right: 1px solid #ADADAD" id="redpill_quantity">{{ redpill_quantity }}</td>
+                        <td class="redtotalcost" style="display: flex; justify-content:center; align-items: center;">0원</td>
                     </tr>
                     <tr class="cart-item-cart" style="margin-bottom: 4rem; border-bottom: 1px solid #ADADAD;">
                         <td class="cart-item1">
                             <div style="width: 7rem;"><img style="width: 100%;" src="{% static 'img/bluepill_img.png' %}" alt=""></div>
-                            <div>
-                                <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">블루필 BLUE PILL</div>
+                            <div style="margin-left: 0.6rem;">
+                                <div style="font-size: 1.1rem; font-weight: 600; margin-top: 1rem;">블루필 BLUE PILL</div>
                                 <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
                             </div>
                         </td>
-                        <td style="display: flex; justify-content: space-around; padding-right: 1rem; border-right: 1px solid #ADADAD">{{ bluepill_quantity }}</td>
-                        <td style="display: flex; justify-content: space-around;">0원</td>
+                        <td style="display: flex; justify-content: center; align-items: center; padding-right: 1rem; border-right: 1px solid #ADADAD" id="bluepill_quantity">{{ bluepill_quantity }}</td>
+                        <td class="bluetotalcost" style="display: flex; justify-content: center; align-items: center;">0원</td>
                     </tr>
                 </table>
             </div>
@@ -80,18 +80,18 @@
                 <div class="cart-money-header">총 주문상품 0개</div>
                 <div class="money">
                     <div>
-                        <div class="num">0원</div> 
-                        <div class="sen">상품금액</div>
+                        <div id="lastTotalcost" class="cart-num">0원</div> 
+                        <div class="cart-sen">상품금액</div>
                     </div>
                     <div>+</div>
                     <div>
-                        <div class="num">3,000원</div> 
-                        <div class="sen">배송비</div>
+                        <div class="cart-num">3,000원</div> 
+                        <div class="cart-sen">배송비</div>
                     </div> 
                     <div>=</div>
                     <div>
-                        <div class="num">0원</div> 
-                        <div class="sen">총 주문금액</div>
+                        <div id="paycost" class="cart-num">0원</div> 
+                        <div class="cart-sen">총 주문금액</div>
                     </div>
                 </div>
             </div>
@@ -228,6 +228,31 @@ items.forEach((item)=>{
 <script>
     function btnAlert(sample) {
         alert(sample);
-    }   
+    }
+
+
+let redresult = document.querySelector("#redpill_quantity");
+let redtotalcost = document.querySelector(".redtotalcost");
+let h = parseInt(redresult.textContent);
+let redtotalcostNum = h*39000;
+redtotalcost.textContent = "₩" +redtotalcostNum.toLocaleString();
+
+let blueresult = document.querySelector("#bluepill_quantity");
+let bluetotalcost = document.querySelector(".bluetotalcost");
+let i = parseInt(blueresult.textContent);
+let bluetotalcostNum = i*39000;
+bluetotalcost.textContent = "₩" +bluetotalcostNum.toLocaleString();
+
+
+let Totalcost = document.querySelector("#lastTotalcost"); 
+let Paycost = document.querySelector("#paycost");
+function TotalcostCal() {
+    TotalcostNum = redtotalcostNum + bluetotalcostNum;
+    Totalcost.textContent = TotalcostNum.toLocaleString() + "원";
+    Paycost.textContent = (TotalcostNum + 3000).toLocaleString() + "원";
+}
+TotalcostCal();
+
+
 </script>
 {% endblock %}

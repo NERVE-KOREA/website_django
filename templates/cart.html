@@ -16,35 +16,34 @@
             {% csrf_token %}
             <table class="item-table">
                 <tr class="item-header">
-                    <td style="margin-left: 6rem;">주문상품</td>
-                    <td style="margin-left: 4rem;">수량</td>
-                    <td style="margin-left: 1rem;">주문금액</td>
+                    <td>주문상품</td>
+                    <td>수량</td>
+                    <td>주문금액</td>
                 </tr>
                 <tr class="cart-item-cart">
                     <td class="cart-item1">
-                        <div style="width: 10rem;"><img style="width: 100%;" src="{% static 'img/redpill_img.png' %}" alt=""></div>
-                        <div style="margin-left: 1rem; width: 10rem; ">
-                            <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">레드필 RED PILL</div>
+                        <div class="cart-img-container"><img style="width: 100%;" src="{% static 'img/redpill_img.png' %}" alt=""></div>
+                        <div class="cart-sen-container">
+                            <div class="cart-sen-title">레드필 RED PILL</div>
                             <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
                         </div>
                     </td>
-                    <td style="display: flex; justify-content: center; align-items: center; padding-right: 1rem; border-right: 1px solid #ADADAD">
+                    <td style="display: flex; justify-content: center; align-items: center; border-right: 1px solid #ADADAD; padding: 0 1rem;">
                         <button type="button" id="minusBtn_red">-1</button>
                         <input type="number" readonly id="redpill_quantity" name="redpill_quantity" value="{{ redpill_quantity }}" style="width: 2.5rem; margin-bottom: 0; padding: 0.1rem 0; text-align: center;">
                         <button type="button" id="plusBtn_red">+1</button>
-                        
                     </td>
                     <td class="redtotalcost" style="display: flex; justify-content: space-around;">0원</td>
                 </tr>
                 <tr class="cart-item-cart" style="margin-bottom: 4rem; border-bottom: 1px solid #ADADAD;">
                     <td class="cart-item1">
-                        <div style="width: 10rem;"><img style="width: 100%;" src="{% static 'img/bluepill_img.png' %}" alt=""></div>
-                        <div style="width: 10rem; margin-left: 1rem;">
-                            <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">블루필 BLUE PILL</div>
+                        <div class="cart-img-container"><img style="width: 100%;" src="{% static 'img/bluepill_img.png' %}" alt=""></div>
+                        <div class="cart-sen-container">
+                            <div class="cart-sen-title">블루필 BLUE PILL</div>
                             <div style="margin-top: 0.3rem;">60 TABLETS / 350mg</div> 
                         </div>
                     </td>
-                    <td style="display: flex; justify-content: center; align-items: center; padding-right: 1rem; border-right: 1px solid #ADADAD">
+                    <td style="display: flex; justify-content: center; align-items: center; border-right: 1px solid #ADADAD;  padding: 0 1rem;">
                         <button type="button" id="minusBtn_blue">-1</button>
                         <input type="number" readonly id="bluepill_quantity" name="bluepill_quantity" value="{{ bluepill_quantity }}" style="width: 2.5rem; margin-bottom: 0; padding: 0.1rem 0; text-align: center;">
                         <button type="button" id="plusBtn_blue">+1</button>
@@ -57,24 +56,24 @@
                     <div class="cart-money-header">총 주문상품 0개</div>
                     <div class="money">
                         <div>
-                            <div class="num">0원</div> 
-                            <div class="sen">상품금액</div>
+                            <div id="lastTotalcost" class="cart-num">0원</div> 
+                            <div class="cart-sen">상품금액</div>
                         </div>
                         <div>+</div>
                         <div>
-                            <div class="num">3,000원</div> 
-                            <div class="sen">배송비</div>
+                            <div class="cart-num">3,000원</div> 
+                            <div class="cart-sen">배송비</div>
                         </div> 
                         <div>=</div>
                         <div>
-                            <div class="num">0원</div> 
-                            <div class="sen">총 주문금액</div>
+                            <div id="paycost" class="cart-num">0원</div> 
+                            <div class="cart-sen">총 주문금액</div>
                         </div>
                     </div>
                 </div>
-                <div class="nextbtn">
+                <div class="nextbtn" style="margin-bottom: 3rem;">
                     <!-- <div><a style="color:black" href="" onclick="btnAlert('담긴 상품이 없습니다.')">선택상품주문</a></div> -->
-                    <button type="submit" style="color: white; background-color: black; border: none; cursor: pointer;">
+                    <button type="submit" style="color: white; background-color: black; border: none; cursor: pointer; padding: 1rem 4rem;">
                         전체상품주문
                     </button>
         </form>    
@@ -120,7 +119,6 @@
     }
 </script>
 <script>
-    // redpill +,- 가격 적용
 let redplus = document.querySelector("#plusBtn_red");
 let redminus = document.querySelector("#minusBtn_red");
 let redresult = document.querySelector("#redpill_quantity");
@@ -129,12 +127,23 @@ let i = parseInt(redresult.value);
 let redtotalcostNum = i*39000;
 redtotalcost.textContent = "₩" +redtotalcostNum.toLocaleString();
 
+let blueplus = document.querySelector("#plusBtn_blue");
+let blueminus = document.querySelector("#minusBtn_blue");
+let blueresult = document.querySelector("#bluepill_quantity");
+let bluetotalcost = document.querySelector(".bluetotalcost");
+let e = parseInt(blueresult.value);
+let bluetotalcostNum = e*39000;
+bluetotalcost.textContent = "₩" +bluetotalcostNum.toLocaleString();
+
+    // redpill +,- 가격 적용
+
+
 redplus.addEventListener("click", () => {
     i++
     redresult.textContent = i;
     let redtotalcostNum = i*39000;
     redtotalcost.textContent = "₩" + redtotalcostNum.toLocaleString();
-
+    TotalcostCal();
 });
 redminus.addEventListener("click", () => {
     if(i > 0 ) {
@@ -145,23 +154,16 @@ redminus.addEventListener("click", () => {
     }else {
         redtotalcost.textContent = "₩" + 0
     }
+    TotalcostCal();
 })
 
 // bluepill +,- 가격 적용
-let blueplus = document.querySelector("#plusBtn_blue");
-let blueminus = document.querySelector("#minusBtn_blue");
-let blueresult = document.querySelector("#bluepill_quantity");
-let bluetotalcost = document.querySelector(".bluetotalcost");
-let e = parseInt(blueresult.value);
-let bluetotalcostNum = e*39000;
-bluetotalcost.textContent = "₩" +bluetotalcostNum.toLocaleString();
-
 blueplus.addEventListener("click", () => {
     e++
     blueresult.textContent = e;
     let bluetotalcostNum = e*39000;
     bluetotalcost.textContent = "₩" + bluetotalcostNum.toLocaleString();
-
+    TotalcostCal();
 });
 blueminus.addEventListener("click", () => {
     if(e > 0 ) {
@@ -169,9 +171,27 @@ blueminus.addEventListener("click", () => {
         blueresult.textContent = e;
         let bluetotalcostNum = e*39000;
         bluetotalcost.textContent = "₩" + bluetotalcostNum.toLocaleString();
+        
     }else {
         bluetotalcost.textContent = "₩" + 0
     }
+    TotalcostCal();
+
 })
+
+
+let Totalcost = document.querySelector("#lastTotalcost"); 
+let Paycost = document.querySelector("#paycost");
+function TotalcostCal() {
+    let redtotalcostNum = i*39000;
+    let bluetotalcostNum = e*39000;
+    TotalcostNum = redtotalcostNum + bluetotalcostNum;
+    Totalcost.textContent = TotalcostNum.toLocaleString() + "원";
+    Paycost.textContent = (TotalcostNum + 3000).toLocaleString() + "원";
+}
+TotalcostCal();
+
+
+
 </script>
 {% endblock %}
