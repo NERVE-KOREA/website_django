@@ -41,7 +41,10 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    ".ap-northeast-2.compute.amazonaws.com",
+    ".nervekorea.com",
+]
 
 # changes the built in User to ours
 AUTH_USER_MODEL = 'signup.User'
