@@ -1,0 +1,54 @@
+@import "reset.css";
+@import "style.css";
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; 
+}
+
+.bs-title {
+    font-size: 27px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.bs-subtitle {
+    font-size: 17px;
+    margin-bottom: 2rem;
+}
+.bs-main-img {
+    width: 80rem;
+}
+.bs-main-img img {
+    width: 100%;
+}
+
+.bs-sen {
+    margin-top: 3rem;
+    width: 80rem;
+    line-height: 1.7;
+    font-size: 15px;
+}
+.bs-sen2, .bs-sen3 {
+    margin-top: 2rem;
+}
+.bs-sen3 {
+    font-size: 13px;
+}
+
+@media (max-width: 767px) {
+    .bs-main-img {
+        width: 100%;
+    }
+    .bs-sen {
+        width: 100%;
+        line-height: 2;
+    }
+    .bs-sen1, .bs-sen2 {
+        margin: 2rem 2rem;
+    }
+    .bs-sen3 {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 6rem;
+    }
+}

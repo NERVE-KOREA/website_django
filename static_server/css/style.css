@@ -1,0 +1,198 @@
+@font-face {
+    font-family: 'Helvetica Neue', sans-serif;
+    src: url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+    unicode-range: U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; 
+    src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css");
+    unicode-range: U+AC00-D7A3, U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
+}
+
+@font-face {
+    font-family: 'Bayon', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Bayon&display=swap');
+}
+
+:root {
+    --nerve-main-color:#DBF925;
+    --nerve-main-color2: #65FC90;
+    --subtitle-color:#8C8C8C;
+    --redpill-color: #FD7972;
+    --bluepill-color: #56C5EC;
+}
+
+
+.global-wrap {
+    height: 100vh;  
+}
+
+/*  */
+/* navbar */
+/*  */
+ 
+nav a {color: black; text-decoration: none; outline: none}
+nav a:hover, a:active {
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.4s;
+    color: var(--subtitle-color);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.8rem 0;
+    height: 1rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    background-color: transparent;
+    transition: all 300ms ease-in-out;
+    z-index: 99999;
+    border-bottom: 0.5px solid #797777;
+    margin: 0 auto;
+    transform: translateX(0);
+}
+.logo-container {
+    width: 6.1rem;
+    height: auto;
+    padding: 0.3rem 0.5rem;
+    margin: 0 2rem;
+    margin-bottom: 0.3rem;
+}
+.logo-container:hover {
+    box-shadow: 1px 1px 1px var(--nerve-main-color);
+    border-radius: 1rem;
+    transition: ease-in-out 0.8s;
+}
+.logo-container img {
+    width: 100%;
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+.nav-left, .nav-right-content {
+    display: flex;
+    align-items: center;
+
+}
+.nav-left div span {
+    margin-right: 2rem;
+}
+.nav-left div span a {
+    padding: 0.7rem 1rem;
+    border-radius: 0.7rem;
+}
+
+.nav-right div span:nth-child(2) {
+    margin-right: 2rem;
+}
+.nav-right div span a {
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+}
+
+nav.navbar--dark {
+    background-color: white;
+    border: none;
+}
+nav.navbar--dark:hover {
+    background-color: white;
+    transition: all 1s;
+}
+
+
+.nav-mobile.open {
+    display: block;
+    
+}
+.nav-mobile {
+    display: none;
+    background-color: white;
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    border-collapse: collapse;
+    z-index: 99999;
+
+}
+.nav-mobile-item {
+    border: 1px solid black;
+    padding: 1rem 1rem;
+
+}
+.nav-mobile-item a {
+    height: 3rem;
+    padding: 1rem 1rem;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 600;
+}
+.nav-mobile-item:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
+
+@media ( min-width: 768px) {
+    .burger {
+        display: none;
+    }
+    .nav-mobile.open {
+        display: none;
+    }
+}
+
+@media ( max-width: 767px) {
+    nav {
+        position: fixed;
+        width: 100%;
+    }
+    .logo-container {
+        width: 5rem;
+        margin: 0 1rem;
+    }
+    .burger {
+        margin-right: 1rem;
+        font-size: 20px;
+    }
+    body {
+        width: 100%;
+    }
+    main {
+        width: 100%;
+    }
+   .nav-right-content, .not-logo {
+        display: none;
+    }
+}
+
+/*  */
+/* footer */
+/*  */
+
+.footer-text {
+    height: 10rem;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+.footer-text div span {
+    margin: 0.3rem;
+}
+.footer-text div span a {
+    text-decoration: none;
+    text-decoration-line: underline;
+    color: white;
+}

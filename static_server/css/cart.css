@@ -1,0 +1,240 @@
+.cart-container {
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+}
+.cart-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.cart-subtitle {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    color: #ADADAD;
+    margin-bottom: 1rem;
+}
+.cart-subtitle span {
+    padding: 0 1rem;
+}
+
+
+.cart-submit li {
+    padding: 1rem 0;
+    display: flex;
+}
+.cart-submit li label {
+    font-size: 20px;
+    margin-right: 1rem;
+    padding: 0.5rem 0;
+    width: 6rem;
+}
+.cart-submit li input {
+    border: 1px solid #D9D9D9;
+    padding: 0.5rem 1rem;
+    font-size: 15px;
+}
+#id_user_message {
+    width: 34rem;
+}
+
+.list-title {
+    font-size: 23px;
+    font-weight: 500;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid black;
+    margin-top: 3rem;
+}
+.list-subtitle {
+    margin: 1rem 0;
+}
+.inputs {
+    margin-bottom: 1rem;
+}
+.inputs input {
+    color: black;
+    background-color: white;
+    border: 1px solid #ADADAD;  
+    width: 100%;
+    padding: 1rem 2rem;
+    text-align: start;
+    border-bottom: none;
+}
+.inputs_item:hover {
+    background-color: black;
+    color: white;
+}
+
+.inputs_item.active {
+    background-color: black;
+    color: white; 
+}
+
+.cart-button {
+    color: white;
+    background-color: black;
+    border: 1px solid #ADADAD;  
+    width: 100%;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    text-align: start;
+}
+.cart-button:hover {
+    transition: 0.3s;
+    background-color: #5d5d5d;
+}
+
+
+
+/* cart */
+.del-btns {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 0.5rem;
+}
+.del-btn {
+    color: black;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+
+}
+.cart-items {
+    margin-top: 5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.item-table {
+    width: 100%;
+}
+.item-table tr {
+    display: flex;
+    border-top: 1px solid #ADADAD;
+    padding: 1.5rem 0;
+
+}
+.item-header td {
+    display: flex;
+    justify-content: center;
+}
+.item-table tr td {
+    width: 100%;
+
+}
+.item-header {
+    font-size: 0.9rem;
+    font-weight: 600;   
+}
+.cart-item1 {
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    border-right: 1px solid #ADADAD;
+    flex-direction: column;
+}
+
+.cart-img-container {
+    width: 10rem;
+}
+.cart-sen-container {
+    margin-left: 1rem; 
+    width: 10rem;
+}
+.cart-sen-title {
+    font-size: 1.2rem; 
+    font-weight: 600; 
+    margin-top: 1rem;
+}
+#plusBtn_red, #minusBtn_red, #plusBtn_blue, #minusBtn_blue {
+    background-color: white;
+    box-shadow:none; 
+    border-radius:0; 
+    cursor:pointer;
+    border:1px solid #D9D9D9;
+    height: 1.5rem;
+    padding: 1.1rem 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-num {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+.cart-sen {
+    font-size: 0.9rem;
+}
+.redtotalcost, .bluetotalcost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-money {
+    margin: 0 1rem;
+}
+.cart-money-header {
+    padding: 1rem 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid #ADADAD;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.money {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem 0;
+    border-bottom: 1.5px solid black;
+    margin-bottom: 5rem;
+}
+
+.nextbtn {
+    display: flex;
+    justify-content: space-evenly;
+}
+.nextbtn div a {
+    text-decoration: none;
+    padding: 1rem 3rem;
+    border: 1px solid black;
+}
+.redtotalcost, .bluetotalcost {
+    margin: 0 1rem;
+}
+
+.pay {
+    margin: 0 1rem;
+}
+
+@media (max-width: 767px) {
+    .cart-container {
+        width: 100%;
+
+    }
+    #id_user_message {
+        width: 20rem;
+    }
+    main {
+        margin: 0;
+        margin-top: 8rem;
+    }
+    .cart-deliver, .cart-item, .cart-pay {
+        margin: 0 0.3rem;
+    }
+    .cart-button {
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        margin-left: 1rem;
+        width: 90%;
+    }
+    .cart-img-container {
+        width: 7rem;
+    }
+    .cart-sen-container {
+        width: 100%;
+    }
+    .cart-sen-title {
+        font-size: 0.9rem;
+    }
+}
