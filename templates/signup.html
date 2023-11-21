@@ -11,6 +11,7 @@
             <li>
                 <label for="id_user_id">* 아이디</label>
                 <input type="text" name="user_id" maxlength="40" required="" id="id_user_id">
+                <button type="submit" onclick= "check_user_id()"> 아이디 중복 체크</button>
             </li>
             <li>
                 <label for="id_password1">* 비밀번호</label>
@@ -588,23 +589,6 @@ o 기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에
             </li>
         </ul>
     </form>
-<!-- 
-        {{ form.user_id.label_tag }} {{ form.user_id }}<br>
-        {{ form.password1.label_tag }} {{ form.password1 }}<br>
-        {{ form.password2.label_tag }} {{ form.password2 }}<span id="password-error" class="error"></span><br>
-        
-    
-        {{ form.user_name.label_tag }} {{ form.user_name }}<br>
-        {{ form.phone_number.label_tag }} {{ form.phone_number }}<br>
-        {{ form.birthdate.label_tag }} {{ form.birthdate }}<br>
-        {{ form.gender.label_tag }} {{ form.gender }}<br>
-        {{ form.email.label_tag }} {{ form.email }}<br>
-        {{ form.email_notification_acceptance.label_tag }} {{ form.email_notification_acceptance }}<br>
-        {{ form.sign_up_path.label_tag }} {{ form.sign_up_path }}<br>
-        
-    
-        
-        <button type="submit">가입하기</button> -->
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -661,6 +645,29 @@ o 기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에
             btn3.style.display = 'block';
         }
     };
+    function check_user_id() {
+        var user_idInput = $('#id_user_id').val();
+
+        $.ajax({
+            url: '{% url "id_duplication_check" %}',
+            data: {'user_id': user_idInput},
+            dataType: 'json',
+            success: function(data) {
+                if (data.status === 'error') {
+                    // 아이디 중복이면 경고창을 띄움
+                    alert(data.message);
+                } else {
+                    $('#username-validation-message').html('<span style="color: green;">사용 가능한 아이디입니다.</span>');
+                }
+            }
+        });
+    }
 </script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js">
+    
+    
+</script>
+
+
 
 {% endblock %}

@@ -38,6 +38,7 @@ def product_add_to_cart_red(request):
     except Cart.DoesNotExist:
         new_cart = Cart.objects.create(user_id = user_id, redpill_quantity = redpill_quantity, bluepill_quantity = 0)
         new_cart.save()
+    return
 
 def product_add_to_cart_blue(request):
     bluepill_quantity = request.POST.get('bluepill_quantity')
@@ -50,4 +51,5 @@ def product_add_to_cart_blue(request):
     except Cart.DoesNotExist:
         new_cart = Cart.objects.create(user_id = user_id, redpill_quantity = 0, bluepill_quantity = bluepill_quantity)
         new_cart.save()
+    return
 

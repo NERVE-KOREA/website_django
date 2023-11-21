@@ -13,31 +13,31 @@
                 <div class="list-title">배송지</div>
                 <ul class="cart-submit">
                     <li>
-                        <label for="id_user_id">받는 사람</label>
-                        <input style="width: 7rem;" type="text" name="user_name" maxlength="40" required="" id="id_user_id">
+                        <label for="id_reciever">받는 사람</label>
+                        <input style="width: 7rem;" type="text" name="reciever" maxlength="40" required="" id="id_user_id">
                     </li>
                     <li>
-                        <label for="id_user_name">주소</label>
+                        <label for="id_address">주소</label>
                         <span>
-                            <input type="text" id="sample4_postcode" placeholder="우편번호">
-                            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 검색"><br><br>
-                            <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
-                            <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
+                            <input type="text" name="orders_zipcode" id="zipcode" placeholder="우편번호">
+                            <input type="button" onclick="execDaumPostcode()" value="우편번호 검색"><br><br>
+                            <input type="text" name="orders_address" id="roadAddress" placeholder="도로명주소">
+                            <input type="text" name="dum" id="jibunAddress" placeholder="지번주소">
                             <span id="guide" style="color:#999;display:none"></span>
-                            <input type="text" id="sample4_detailAddress" placeholder="상세주소"><br><br>
-                            <input type="text" id="sample4_extraAddress" placeholder="참고항목">
+                            <input type="text" name="dum2" id="extraAddress" placeholder="참고항목"><br><br>
+                            <input type="text" name="orders_address_detail" id="address_detail" placeholder="상세주소" style="width: 630px;">
                         </span>
                     </li>
                     <li>
-                        <label for="id_phone_number">휴대전화</label>
-                        <input type="text" name="phone_number" maxlength="13" required="" id="id_phone_number">
+                        <label for="id_reciever_phone_number">휴대전화</label>
+                        <input type="text" name="reciever_phone_number" maxlength="13" required="" id="id_phone_number">
                     </li>
                     <li>
                         <label for="id_user_message">메세지 입력</label>
-                        <input type="text" name="" maxlength="10" required="" id="id_user_message">
+                        <input type="text" name="reciever_demand" maxlength="10" required="" id="id_user_message">
                     </li>
                 </ul>
-            </form>
+            
         </div>
         <div class="cart-item">
             <div class="list-title">주문상품</div>
@@ -111,12 +111,13 @@
                 </div>
         </div>
         <div><button class="cart-button" type="submit" onclick="btnAlert('재고가 없습니다.')">결제하기</button></div>
+    </form>
     </div>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-    function sample4_execDaumPostcode() {
+    function execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -141,15 +142,15 @@
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample4_postcode').value = data.zonecode;  
-                document.getElementById("sample4_roadAddress").value = roadAddr;
-                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+                document.getElementById('zipcode').value = data.zonecode;  
+                document.getElementById("roadAddress").value = roadAddr;
+                document.getElementById("jibunAddress").value = data.jibunAddress;
                 
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 if(roadAddr !== ''){
-                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                    document.getElementById("extraAddress").value = extraRoadAddr;
                 } else {
-                    document.getElementById("sample4_extraAddress").value = '';
+                    document.getElementById("extraAddress").value = '';
                 }
 
                 var guideTextBox = document.getElementById("guide");
@@ -201,7 +202,7 @@
     return str;
 }
 
-var phoneNum = document.getElementById('id_phone_number');
+var phoneNum = document.getElementById('id_reciever_phone_number');
 
 phoneNum.onkeyup = function(){
   console.log(this.value);

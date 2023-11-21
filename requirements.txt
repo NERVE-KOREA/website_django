@@ -11,7 +11,7 @@ djangorestframework==3.14.0
 ec2==0.4.0
 firewall==0.2.0
 idna==3.4
-mysqlclient==2.2.0
+mysqlclient==py2.2.0
 oauthlib==3.2.2
 pycparser==2.21
 PyJWT==2.8.0
